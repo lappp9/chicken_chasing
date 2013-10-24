@@ -1,0 +1,19 @@
+<div id = "header">
+  <span id = 'logo'>  <%= link_to logo, root_path %>  </span>
+  <span id = "title"><%= link_to 'ChickenChasing', root_path, class: 'menu title' %></span>
+
+  <span id = "middleMenu">
+    <%= link_to 'Tour', '#', class: 'menu' %> | <%= link_to 'About', about_path, class: 'menu' %>
+  </span>
+
+  <span id = "rightMenuSpan">
+    <ul class = "menu">
+      <li><%= link_to '* Premium', '#', class: 'menu' %></li>
+      <li><%= link_to '* Login', '#', class: 'menu' %></li>
+    </ul>
+    <ul class = "menu">
+      <li><%= link_to '* News','#', class: 'menu' %></li>
+      <li><%= link_to '* Sign Up', '#', class: 'menu' %></li>
+    </ul>
+  </span>
+</div>
