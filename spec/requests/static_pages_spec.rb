@@ -5,7 +5,7 @@ describe "StaticPages" do
   subject { page }
 
   describe "the home page" do
-    before { visit home_path }
+    before { visit root_path }
 
     it { should have_content 'Welcome to Chicken Chasing!' }
   end
