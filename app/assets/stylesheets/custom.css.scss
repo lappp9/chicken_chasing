@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+$header-alignment: -20%;
 body 
 {
   margin: 0;
@@ -13,40 +14,42 @@ body
   width: 100%;
   color: white;
   font-family: 'Architects Daughter', serif;
-  padding-top:10px;
-}
-#title
-{
-  font-size: 30px;
-  display: inline-block;
-  vertical-align: 50%;
+
+  .menu
+  {
+    display: inline-block;
+    list-style: none;
+    text-decoration: none;
+  }
+  #title
+  {
+    font-size: 30px;
+    display: inline-block;
+    vertical-align: $header-alignment;
+  }
+  #logo
+  {
+    padding-left: 85px;
+  }
+  #middleMenu
+  {
+    vertical-align: middle;
+    display: inline-block;
+    vertical-align: $header-alignment;
+    padding-left: 180px;
+    font-size: 17px;
+  }
+
+  #rightMenuSpan
+  {
+    float: right;   
+    padding-top: 15px;
+    padding-right: 103px;
+    font-size: 15px;
+  }
 }
 
-#logo
-{
-  padding-left: 85px;
-}
-#middleMenu
-{
-  vertical-align: middle;
-  display: inline-block;
-  vertical-align: 100%;
-  padding-left: 180px;
-  font-size: 17px;
-}
 
-#rightMenuSpan
-{
-  float: right;   
-  padding-top: 15px;
-  padding-right: 103px;
-  font-size: 15px;
-}
-
-
-/* 
-Body
- */
 #content
 {
   background-color: white;
@@ -61,38 +64,6 @@ Body
   border-radius: 10px;    
   padding: 10px;
 }
-/* 
-Footer
- */
-#footer
-{
-  background-color: #2C594F;
-  max-height: 500px;
-  min-height: 100px;
-  width: 100%;
-  padding-top:15px;
-}
-
-
-
-.menu
-{
-  display: inline-block;
-  list-style: none;
-  text-decoration: none;
-}
-
-
-#footerMenu
-{
-  display: inline;
-  margin-right: auto;
-  margin-left: 530px;
-  font-family: 'Architects Daughter', serif;
-  font-size: 17px;
-  text-decoration: none;
-}
-
 
 a:link.menu, a:visited.menu, a:hover.menu
 {
