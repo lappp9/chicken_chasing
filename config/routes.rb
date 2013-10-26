@@ -1,6 +1,8 @@
 ChickenChasing::Application.routes.draw do
   root to: 'static_pages#home'
 
+  resources :users
+
   match '/signup', to: 'users#new', via: 'get'
 
   match '/about', to: 'static_pages#about', via: 'get'
