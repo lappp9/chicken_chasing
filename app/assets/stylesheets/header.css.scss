@@ -1,0 +1,44 @@
+$header-alignment: -20%;
+
+#header
+{
+  background-color: #2C594F;
+  max-height: 500px;
+  width: 100%;
+  color: white;
+  font-family: 'Architects Daughter', serif;
+
+  .menu
+  {
+    display: inline-block;
+    list-style: none;
+    text-decoration: none;
+  }
+  #title
+  {
+    font-size: 30px;
+    display: inline-block;
+    vertical-align: $header-alignment;
+  }
+  #logo
+  {
+    padding-left: 85px;
+  }
+  #middleMenu
+  {
+    vertical-align: middle;
+    display: inline-block;
+    vertical-align: $header-alignment;
+    padding-left: 180px;
+    font-size: 17px;
+  }
+
+  #rightMenuSpan
+  {
+    float: right;   
+    padding-top: 15px;
+    padding-right: 103px;
+    font-size: 15px;
+  }
+}
+
