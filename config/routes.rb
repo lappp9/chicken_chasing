@@ -1,16 +1,17 @@
 ChickenChasing::Application.routes.draw do
   root to: 'static_pages#home'
 
-  resources :users
+  resources :users, :products, :farmers
+
+  resources :farms do
+    resources :products
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
-
-  resources :products
 
   match '/signup',  to: 'users#new',        via: 'get'
   match '/login',   to: 'sessions#new',     via: 'get'
   match '/logout',  to: 'sessions#destroy', via: 'delete'
-
 
   match '/about', to: 'static_pages#about', via: 'get'
 

@@ -1,5 +1,6 @@
 <% @products.each do |p| %>
   <div class = "search-result row">
     <%= p.inspect %>
+    <%= link_to "View Product", product_path(p), class: "product-link" %>
   </div>
 <% end %>
