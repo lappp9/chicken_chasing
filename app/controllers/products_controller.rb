@@ -8,6 +8,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def new
+    @product = Product.new
+  end
+
   def show 
     @product = Product.find_by id: params[:id]
   end

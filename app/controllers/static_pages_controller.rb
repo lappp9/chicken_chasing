@@ -4,4 +4,11 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  def tour
+  end
+
+  def premium
+  end
+
 end
