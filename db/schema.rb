@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131101000027) do
+ActiveRecord::Schema.define(version: 20131101003021) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20131101000027) do
     t.integer  "zip"
     t.integer  "user_id"
     t.integer  "farm_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.integer  "user_id"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

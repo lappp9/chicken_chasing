@@ -11,4 +11,7 @@ class StaticPagesController < ApplicationController
   def premium
   end
 
+  def signup_options
+  end
+
 end

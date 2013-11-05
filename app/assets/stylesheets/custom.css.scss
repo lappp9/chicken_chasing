@@ -8,6 +8,11 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+@mixin centered {
+  width: 50%;
+  margin: 0 auto;
+}
+
 body 
 {
   margin: 0;
@@ -52,4 +57,24 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+.centered {
+  @include centered;
+  padding-top: 30px;
+}
+
+#options {
+  @include centered;
+}
+
+#left-button {
+  float: left;
+}
+
+#or{
+  @include centered;
+}
+
+#right-button {
+  float: right;
 }

@@ -1,7 +1,7 @@
 ChickenChasing::Application.routes.draw do
   root to: 'static_pages#home'
 
-  resources :users, :products, :farmers
+  resources :users, :products, :farmers, :customers
 
   resources :farms do
     resources :products
@@ -9,11 +9,13 @@ ChickenChasing::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup',  to: 'users#new',        via: 'get'
-  match '/login',   to: 'sessions#new',     via: 'get'
-  match '/logout',  to: 'sessions#destroy', via: 'delete'
+  match '/signup_options', to: 'static_pages#signup_options', via: 'get'
+  match '/signup',         to: 'users#new',                   via: 'get'
 
-  match '/about', to: 'static_pages#about', via: 'get'
+  match '/login',          to: 'sessions#new',                via: 'get'
+  match '/logout',         to: 'sessions#destroy',            via: 'delete'
+
+  match '/about',          to: 'static_pages#about',          via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
