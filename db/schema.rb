@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131101003021) do
+ActiveRecord::Schema.define(version: 20131105035503) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20131101003021) do
     t.string   "type"
     t.string   "lastname"
     t.string   "remember_token"
+    t.string   "profile_type"
+    t.integer  "profile_id"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"

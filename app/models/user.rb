@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  belongs_to :profile, polymorphic: true
+
   before_create :create_remember_token 
 
 
