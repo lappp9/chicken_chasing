@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105035503) do
+ActiveRecord::Schema.define(version: 20131107223336) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20131105035503) do
     t.text     "personal_philosophy"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
   end
 
   create_table "farms", force: true do |t|
@@ -72,7 +71,6 @@ ActiveRecord::Schema.define(version: 20131105035503) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
     t.string   "lastname"
     t.string   "remember_token"
     t.string   "profile_type"

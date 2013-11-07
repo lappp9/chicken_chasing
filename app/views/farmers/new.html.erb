@@ -1,25 +1,61 @@
 <h2> Getting Started?</h2>
-
-<p>
+<strong>
+  <p>
   Chicken Chasing provides a quick and easy way to: draw in customers in your area, 
   allow your customers to set up recurring payments, and keep track of their orders.
-</p>
+  </p>
 
-<p> 
-  Just begin by entering some basic information to set up your profile.
-</p>
+  <p> 
+  <h4>
+    Just begin by entering some basic information to set up your profile.
+  </h4>
+  </p>
+</strong>
 
-<!-- Let the farmer enter their own user info in -->
-<% form_for @farmer do |f| %>
+<%= form_for(@farmer) do |f| %>
+  <%= f.label :favorite_quotes %>
+  <%= f.text_field :favorite_quotes %>
+
+  <%= f.label :role_models %>
+  <%= f.text_field :role_models %>
+
+  <%= f.label :personal_philosophy %>
+  <%= f.text_field :personal_philosophy %>
+
+  <%= f.submit "Next", class: "btn btn-small " %>
 <% end %>
 
-<!-- Let them enter in the information about their farm -->
-<% form_for @farm do |f| %>
+<h4>
+  Now add the information about your farm!
+</h4>
+
+<%= form_for(@farm) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Next", class: "btn btn-small " %>
 <% end %>
 
-<!-- Let them enter in the products they sell -->
-<% form_for @product do |p| %>
+<h4>
+  And finally, add some products you would like to offer!
+</h4>
+
+<%= form_for(@product, html: { class: "product-form" } ) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.submit "Next", class: "btn btn-small " %>
 <% end %>
 
-<!-- Allow them to add another product -->
 <%= link_to "Add product", "#", onClick: "addProductForm()" %>
