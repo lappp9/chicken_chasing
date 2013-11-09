@@ -1,61 +1,68 @@
 <h2> Getting Started?</h2>
-<strong>
-  <p>
-  Chicken Chasing provides a quick and easy way to: draw in customers in your area, 
-  allow your customers to set up recurring payments, and keep track of their orders.
-  </p>
 
-  <p> 
+<div class = "form-page" id = "farmer-form">
+  <strong>
+    <p>
+    Chicken Chasing provides a quick and easy way to: draw in customers in your area, 
+    allow your customers to set up recurring payments, and keep track of their orders.
+    </p>
+
+    <p> 
+    <h4>
+      Just begin by entering some basic information to set up your profile.
+    </h4>
+    </p>
+  </strong>
+  <%= form_for(@farmer) do |f| %>
+    <%= f.label :favorite_quotes %>
+    <%= f.text_field :favorite_quotes %>
+
+    <%= f.label :role_models %>
+    <%= f.text_field :role_models %>
+
+    <%= f.label :personal_philosophy %>
+    <%= f.text_field :personal_philosophy %>
+
+    <%= f.submit "Previous", class: "prev btn btn-small " %>
+    <%= f.submit "Next", class: "next btn btn-small " %>
+  <% end %>
+</div>
+
+<div class = "hidden form-page" id = "farm-form">
   <h4>
-    Just begin by entering some basic information to set up your profile.
+    Now add the information about your farm!
   </h4>
-  </p>
-</strong>
 
-<%= form_for(@farmer) do |f| %>
-  <%= f.label :favorite_quotes %>
-  <%= f.text_field :favorite_quotes %>
+  <%= form_for(@farm) do |f| %>
 
-  <%= f.label :role_models %>
-  <%= f.text_field :role_models %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-  <%= f.label :personal_philosophy %>
-  <%= f.text_field :personal_philosophy %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
 
-  <%= f.submit "Next", class: "btn btn-small " %>
-<% end %>
+    <%= f.submit "Next", class: "btn btn-small " %>
+  <% end %>
+</div>
 
-<h4>
-  Now add the information about your farm!
-</h4>
+<div class = "hidden form-page" id = "product-form" >
+  <h4>
+    And finally, add some products you would like to offer!
+  </h4>
 
-<%= form_for(@farm) do |f| %>
+  <%= form_for(@product, html: { class: "product-form" } ) do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
 
-  <%= f.submit "Next", class: "btn btn-small " %>
-<% end %>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
 
-<h4>
-  And finally, add some products you would like to offer!
-</h4>
+    <%= f.submit "Next", class: "btn btn-small " %>
+  <% end %>
 
-<%= form_for(@product, html: { class: "product-form" } ) do |f| %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-
-  <%= f.submit "Next", class: "btn btn-small " %>
-<% end %>
-
-<%= link_to "Add product", "#", onClick: "addProductForm()" %>
+  <%= link_to "Add product", "#", onClick: "addProductForm()" %>
+</div>
