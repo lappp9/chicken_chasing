@@ -1,4 +1,5 @@
 ChickenChasing::Application.routes.draw do
+  get "forms/product_form"
   root 'static_pages#home'
 
   resources :users, :products, :farmers, :customers
@@ -8,6 +9,8 @@ ChickenChasing::Application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]
+
+  match '/product_form',   to: 'forms#product_form',          via: 'get'
 
   match '/signup_options', to: 'static_pages#signup_options', via: 'get'
   match '/signup',         to: 'users#new',                   via: 'get'

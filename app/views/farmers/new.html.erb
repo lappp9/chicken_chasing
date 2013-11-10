@@ -40,8 +40,16 @@
         And finally, add some products you would like to offer!
       </h2>
 
-      <%= render "shared/product_form" %>
+      <div id = "product-list">
+        <%= render "shared/product_form" %>
+      </div>
 
+      <%= link_to "Add another product", "#", class: "btn btn-small prev", id: "add-product-button" %>
+      <br />
+      <%= link_to "Finish signup!", "#", class: "btn-primary btn btn-small next", onClick: "submitAllForms()" %>
+
+
+    
     </div>
 
 
