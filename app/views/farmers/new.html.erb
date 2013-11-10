@@ -1,48 +1,37 @@
-<h2> Getting Started?</h2>
+<a class="carousel-control left hidden" href="#" data-slide="prev">&lsaquo;</a>
+<a class="carousel-control right" href="#" data-slide="next">&rsaquo;</a>
 
+<ol class="carousel-indicators">
+  <li data-target="#farmer-form"  data-slide-to="0" class="active"></li>
+  <li data-target="#farm-form"    data-slide-to="1"></li>
+  <li data-target="#product-form" data-slide-to="2"></li>
+</ol>
+<div class="carousel-inner">
+<h2> Getting Started?</h2>
 <div class = "form-page" id = "farmer-form">
   <strong>
     <p>
-    Chicken Chasing provides a quick and easy way to: draw in customers in your area, 
-    allow your customers to set up recurring payments, and keep track of their orders.
+    Chicken Chasing provides a quick and easy way to:
+    <ul>
+      <li>draw in customers in your area,</li>
+      <li>allow customers to purchase your items directly,</li>
+      <li>allow your customers to set up recurring payments, and keep track of their orders.</li>
+    </ul>
     </p>
-
     <p> 
     <h4>
-      Just begin by entering some basic information to set up your profile.
+      To begin, enter some basic information to set up your profile.
     </h4>
     </p>
   </strong>
-  <%= form_for(@farmer) do |f| %>
-    <%= f.label :favorite_quotes %>
-    <%= f.text_field :favorite_quotes %>
-
-    <%= f.label :role_models %>
-    <%= f.text_field :role_models %>
-
-    <%= f.label :personal_philosophy %>
-    <%= f.text_field :personal_philosophy %>
-
-    <%= f.submit "Previous", class: "prev btn btn-small " %>
-    <%= f.submit "Next", class: "next btn btn-small " %>
-  <% end %>
+  <%= render "shared/farmer_form" %>
 </div>
 
 <div class = "hidden form-page" id = "farm-form">
   <h4>
     Now add the information about your farm!
   </h4>
-
-  <%= form_for(@farm) do |f| %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-
-    <%= f.submit "Next", class: "btn btn-small " %>
-  <% end %>
+  <%= render "shared/farm_form" %>
 </div>
 
 <div class = "hidden form-page" id = "product-form" >
@@ -50,19 +39,7 @@
     And finally, add some products you would like to offer!
   </h4>
 
-  <%= form_for(@product, html: { class: "product-form" } ) do |f| %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-
-    <%= f.submit "Next", class: "btn btn-small " %>
-  <% end %>
+  <%= render "shared/product_form" %>
 
   <%= link_to "Add product", "#", onClick: "addProductForm()" %>
 </div>
