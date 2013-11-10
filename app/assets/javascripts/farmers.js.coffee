@@ -8,8 +8,7 @@
 $(document).ready ->       
   $('.carousel').carousel('pause')
 
-  $('.carousel-control.left').addClass('hidden')
-    
+$(document).ready ->       
   $('.carousel-control.left').click -> 
     if($('#farm-form').hasClass('active'))
       $('.carousel-control.left').addClass('hidden')
