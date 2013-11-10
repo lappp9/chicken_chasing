@@ -1,45 +1,65 @@
-<a class="carousel-control left hidden" href="#" data-slide="prev">&lsaquo;</a>
-<a class="carousel-control right" href="#" data-slide="next">&rsaquo;</a>
+<a class="carousel-control left hidden" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 
-<ol class="carousel-indicators">
-  <li data-target="#farmer-form"  data-slide-to="0" class="active"></li>
-  <li data-target="#farm-form"    data-slide-to="1"></li>
-  <li data-target="#product-form" data-slide-to="2"></li>
-</ol>
-<div class="carousel-inner">
-<h2> Getting Started?</h2>
-<div class = "form-page" id = "farmer-form">
-  <strong>
-    <p>
-    Chicken Chasing provides a quick and easy way to:
-    <ul>
-      <li>draw in customers in your area,</li>
-      <li>allow customers to purchase your items directly,</li>
-      <li>allow your customers to set up recurring payments, and keep track of their orders.</li>
-    </ul>
-    </p>
-    <p> 
-    <h4>
-      To begin, enter some basic information to set up your profile.
-    </h4>
-    </p>
-  </strong>
-  <%= render "shared/farmer_form" %>
-</div>
+<div id="myCarousel" class="carousel slide">
 
-<div class = "hidden form-page" id = "farm-form">
-  <h4>
-    Now add the information about your farm!
-  </h4>
-  <%= render "shared/farm_form" %>
-</div>
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel"  data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel"    data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
 
-<div class = "hidden form-page" id = "product-form" >
-  <h4>
-    And finally, add some products you would like to offer!
-  </h4>
+  <div class="carousel-inner">
 
-  <%= render "shared/product_form" %>
+    <div class = "form-page item active" id = "farmer-form">
+      <h2> Getting Started?</h2>
+      <strong>
+        <p>
+        Chicken Chasing provides a quick and easy way to:
+        <ul>
+          <li>draw in customers in your area,</li>
+          <li>allow customers to purchase your items directly,</li>
+          <li>allow your customers to set up recurring payments, and keep track of their orders.</li>
+        </ul>
+        </p>
+        <p> 
+        <h4>
+          To begin, enter some basic information to set up your profile.
+        </h4>
+        </p>
+      </strong>
+      <%= render "shared/farmer_form" %>
+    </div>
 
-  <%= link_to "Add product", "#", onClick: "addProductForm()" %>
+
+
+
+
+
+
+    <div class = "item form-page" id = "farm-form">
+      <h2>
+        Now add information about your farm!
+      </h2>
+      <%= render "shared/farm_form" %>
+    </div>
+
+
+
+
+    <div class = "item form-page" id = "product-form" >
+      <h4>
+        And finally, add some products you would like to offer!
+      </h4>
+
+      <%= render "shared/product_form" %>
+
+      <%= link_to "Add product", "#", onClick: "addProductForm()" %>
+    </div>
+
+
+
+  </div>
+
+
 </div>
