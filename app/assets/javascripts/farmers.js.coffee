@@ -4,6 +4,8 @@
 
 $(document).ready ->       
 
+  window.product_form_count = 1
+
   $('.carousel-control.left').click -> 
     if($('#farm-form').hasClass('active'))
       $('.carousel-control.left').addClass('hidden')
@@ -21,13 +23,23 @@ $(document).ready ->
       $('.carousel-control.right').removeClass('hidden')
 
   $('#add-product-button').click (e) ->
-    e.preventDefault();
+    e.preventDefault()
 
     $.ajax
       method: "get"
       url: "/product_form"
       success: (data) ->
         $("#product-list").append data
+        $('#remove-product-button').removeClass("hidden")
+        window.product_form_count++
+
+  $('#remove-product-button').click (e) ->
+    e.preventDefault();
+    $('#product-list').children().last().remove()
+    window.product_form_count--
+    if(window.product_form_count == 1)
+      $('#remove-product-button').addClass('hidden')
+
 
   #submitAllForms -> 
     ##kick off posting and keep posting each successive
