@@ -1,0 +1,23 @@
+<%= form_for(@product) do |f| %>
+
+  <div class = "row">
+    <div class = "col-md-4">
+      <%= f.label "The product's name" %>
+      <%= f.text_field :name  %>
+    </div>
+
+    <div class = "col-md-4">
+      <%= f.label "Add a description of the product" %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class = "col-md-4">
+      <%= f.label "Which category is this product in? " %> 
+      <%= f.text_field :category%>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to "Add product", "#", class: "btn-primary btn btn-small", onClick: "addProductForm()" %>
+
+

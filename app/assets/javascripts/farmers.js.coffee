@@ -4,7 +4,9 @@
 #
 #
 
-#Stop the carousel from autosliding
+#$(document).ready ->       
+  #$('.carousel').carousel('pause')
+
 $(document).ready ->       
   $('.carousel-control.left').click -> 
     if($('#farm-form').hasClass('active'))

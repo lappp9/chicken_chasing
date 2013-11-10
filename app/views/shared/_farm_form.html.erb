@@ -6,6 +6,9 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
-  <%= f.submit "Next", class: "btn btn-small " %>
+  <%= link_to "Previous", "#", class: "prev btn btn-small" %>
+  <%= link_to "Next", "#",     class: "next btn btn-small" %>
+
+  <%= f.submit "Next", class: "hidden btn btn-small " %>
 <% end %>
 
