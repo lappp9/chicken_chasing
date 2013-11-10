@@ -1,9 +1,9 @@
 <%= form_for(@farm) do |f| %>
 
-  <%= f.label :name %>
+  <%= f.label "What's the name of your farm?" %>
   <%= f.text_field :name %>
 
-  <%= f.label :description %>
+  <%= f.label "Describe your farm in a sentence or two" %>
   <%= f.text_field :description %>
 
   <%= link_to "Previous", "#", class: "prev btn btn-small" %>
