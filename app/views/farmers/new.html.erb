@@ -3,13 +3,6 @@
   <div class="carousel-inner row">
 
     <div class = "form-page item active col-md-8 col-md-offset-2" id = "farmer-form">
-
-      <h4 class = "alert alert-info fade in">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-        When you're done you can click the right arrow or press the right arrow key to move on!
-      </h4>
-      <div class = "direction-arrow"></div>
-
       <h2> Getting Started?</h2>
       <strong>
         <p>
@@ -28,8 +21,8 @@
         </h4>
         </p>
       </strong>
+      <%= render "shared/user_form" %>
       <%= render "shared/farmer_form" %>
-
     </div>
 
 
@@ -52,13 +45,17 @@
         <%= render "shared/product_form" %>
       </div>
 
-      <%= link_to "Add another product", "#", class: "btn btn-small left", id: "add-product-button" %>
-      <%= link_to "Remove product", "#", class: "btn btn-small hidden right", id: "remove-product-button" %>
+      <%= link_to "Add another product", "#", class: "btn btn-small prev", id: "add-product-button" %>
+      <%= link_to "Remove product", "#", class: "btn btn-small next hidden", id: "remove-product-button" %>
       <br />
       <br />
-      <%= link_to "Finish signup!", "#", class: "btn-primary btn btn-small right", onClick: "submitAllForms()" %>
+      <%= link_to "Finish signup!", "#", class: "btn-primary btn btn-small next", onClick: "submitAllForms()" %>
+
+
     
     </div>
+
+
 
   </div>
 </div>

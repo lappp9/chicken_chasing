@@ -1,13 +1,13 @@
-  <%= form_for(@farmer) do |f| %>
-    <%= f.label "What's your favorite quote?" %>
-    <%= f.text_field :favorite_quotes %>
+<%= form_for(@farmer) do |f| %>
+  <%= f.label "What's your favorite quote?" %>
+  <%= f.text_field :favorite_quotes %>
 
-    <%= f.label "Who are some of your role models?" %>
-    <%= f.text_field :role_models %>
+  <%= f.label "Who are some of your role models?" %>
+  <%= f.text_field :role_models %>
 
-    <%= f.label "What's your personal philosophy?" %>
-    <%= f.text_field :personal_philosophy %>
+  <%= f.label "What's your personal philosophy?" %>
+  <%= f.text_field :personal_philosophy %>
 
-    <%= f.submit "Next", class: "hidden btn btn-small " %>
-  <% end %>
+  <%= f.submit "Next", class: "hidden btn btn-small " %>
+<% end %>
 
