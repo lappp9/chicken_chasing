@@ -79,3 +79,8 @@ input {
 #right-button {
   float: right;
 }
+
+#header {
+  z-index: 3;
+  position: relative;
+}

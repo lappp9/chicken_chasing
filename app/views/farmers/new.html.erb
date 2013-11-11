@@ -22,6 +22,8 @@
         </p>
       </strong>
       <%= render "shared/farmer_form" %>
+
+      <%= link_to "Next", "#",     class: "next btn btn-small" %>
     </div>
 
 
@@ -44,17 +46,13 @@
         <%= render "shared/product_form" %>
       </div>
 
-      <%= link_to "Add another product", "#", class: "btn btn-small prev", id: "add-product-button" %>
-      <%= link_to "Remove product", "#", class: "btn btn-small next hidden", id: "remove-product-button" %>
+      <%= link_to "Add another product", "#", class: "btn btn-small left", id: "add-product-button" %>
+      <%= link_to "Remove product", "#", class: "btn btn-small hidden right", id: "remove-product-button" %>
       <br />
       <br />
       <%= link_to "Finish signup!", "#", class: "btn-primary btn btn-small next", onClick: "submitAllForms()" %>
-
-
     
     </div>
-
-
 
   </div>
 </div>

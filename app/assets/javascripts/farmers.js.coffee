@@ -6,6 +6,28 @@ $(document).ready ->
 
   window.product_form_count = 1
 
+  $(document).keydown (e) ->
+    if e.keyCode is 39 and not $('#product-form').hasClass('active')
+      $(".carousel-control.right").click()
+      false
+
+  $(document).keydown (e) ->
+    if e.keyCode is 37 and not $('#farmer-form').hasClass('active')
+      $(".carousel-control.left").click()
+      false
+
+    
+  $(".next").each ->
+    $(this).click (e) ->
+      e.preventDefault()
+      $(".carousel-control.right").click()
+
+  $(".prev").each ->
+    $(this).click (e) ->
+      e.preventDefault()
+      $(".carousel-control.left").click()
+
+
   $('.carousel-control.left').click -> 
     if($('#farm-form').hasClass('active'))
       $('.carousel-control.left').addClass('hidden')

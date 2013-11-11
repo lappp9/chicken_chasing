@@ -6,12 +6,20 @@
   display:none;
 }
 
+.prev{
+  float:left;
+}
+
 .next{
   float:right;
 }
 
-.prev{
+.left{
   float:left;
+}
+
+.right{
+  float:right;
 }
 
 //right.carousel-control {
