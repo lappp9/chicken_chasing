@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->       
+$(document).ready ->
 
   window.product_form_count = 1
 
@@ -15,7 +15,6 @@ $(document).ready ->
     if e.keyCode is 37 and not $('#farmer-form').hasClass('active')
       $(".carousel-control.left").click()
       false
-
     
   $(".next").each ->
     $(this).click (e) ->
@@ -26,7 +25,6 @@ $(document).ready ->
     $(this).click (e) ->
       e.preventDefault()
       $(".carousel-control.left").click()
-
 
   $('.carousel-control.left').click -> 
     if($('#farm-form').hasClass('active'))
@@ -62,20 +60,54 @@ $(document).ready ->
     if(window.product_form_count == 1)
       $('#remove-product-button').addClass('hidden')
 
+  postData = (bucket, data) -> 
+    $.ajax
+      type: "POST",
+      url: "/#{bucket}",
+      data: data 
+      success: (data) ->
+        alert data
+    .done ( msg ) ->
+      alert( "Response " + JSON.stringify(msg) )
 
-  #submitAllForms -> 
-    ##kick off posting and keep posting each successive
-    ##form depending on success or failure of the one it's dependent on
 
-    #data = getFarmerData()
-    #$.ajax({
-      #type: "POST",
-      #url: "/farmers",
-      #data: data,
-      #success: submitFarmForm(),
-      #dataType: "application/json"
-    #});
+  $('#farmer-signup').click (e) ->
+    e.preventDefault()
+    userId = postData("users", getUserFormDataAsJson())
+    #farmerId = postData("farmers", getFarmerFormDataAsJson())
+    #farmId = postData("farms", getFarmFormDataAsJson())
+    #postData("products", getProductFormDataAsJson())
 
+  getUserFormDataAsJson = ->
+    formFields = $("input[id^=user_]")
+    data = {"user": {"name":formFields[0].value,"email":formFields[1].value, "password":formFields[1].value, "password_confirmation":formFields[1].value}, "ajax":true}
+    alert(data)
+    data
+
+  #getFarmerFormDataAsJson = (userId) ->
+    #formFields = $("input[id^=farmer_]")
+    #data = {"farmer": {"favorite_quotes":formFields[0].value, "role_models":formFields[1].value, "personal_philosophy":formFields[2].value},  "ajax":true,"user_id":userId}
+    #alert(data)
+    #data
+
+  #getFarmFormDataAsJson = (farmerId) ->
+    #formFields = $("input[id^=farm_]")
+    #data = {"farm": {"name":formFields[0].value,"description":formFields[1].value,"farmer_id":farmerId }, "ajax":true }
+    #alert(data)
+    #data
+
+  #getProductFormDataAsJson = (farmId) ->
+    #formFields = $("input[id^=product_]")
+    #data = {"product": {"name":formFields[0].value, "description":formFields[1].value, "category":formFields[2].value, "farm_id":farmId}, "ajaxjax":true }
+    #alert(data)
+    #data
+
+    
+
+  #submitAllForms = -> 
+
+  #so if one of these fails should i call a rollback function that sends delete requests for each one?
+  
   ##go through the forms and pull out all the data and put it into a json object
   #getFarmerData ->
 
