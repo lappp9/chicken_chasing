@@ -108,7 +108,8 @@ $(document).ready ->
         alert("Farm response "+JSON.stringify(data))
         if(data.id)
           alert("great farm success...")
-          postProductData( data.id )
+          alert(JSON.stringify(getProductFormDataAsJson(data.id)))
+          postProductData( getProductFormDataAsJson(data.id) )
         else
           alert("great farm failure...")
     .done ( msg ) ->
@@ -143,7 +144,7 @@ $(document).ready ->
 
   getProductFormDataAsJson = (farmId) ->
     formFields = $("input[id^=product_]")
-    {"product": {"name":formFields[0].value, "description":formFields[1].value, "category":formFields[2].value, "farm_id":farmId}, "ajax":true }
+    {"product": {"name":formFields[0].value, "description":formFields[1].value, "category":formFields[2].value, "farm_id":farmId }, "ajax":true }
 
 
   

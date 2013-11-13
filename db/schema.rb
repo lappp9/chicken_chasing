@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131107223336) do
+ActiveRecord::Schema.define(version: 20131113182819) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20131107223336) do
   end
 
   create_table "farmers", force: true do |t|
-    t.integer  "user_id"
     t.text     "favorite_quotes"
     t.text     "role_models"
     t.text     "personal_philosophy"
