@@ -18,6 +18,11 @@ class FarmersController < ApplicationController
     end
   end
 
+  def destroy
+    @farmer.destroy! if @farmer = Farmer.find_by(id: params[:id])
+    render json: {}
+  end
+
 
   private
     def farmer_params

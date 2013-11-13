@@ -26,6 +26,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @product.destroy! if @product = Product.find_by(id: params[:id])
+    render json: {}
+  end
+
   private
     def product_params
       params.require(:product).permit(:name, :description, :category, :farm_id)

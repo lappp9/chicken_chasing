@@ -17,6 +17,11 @@ class FarmsController < ApplicationController
     end
   end
 
+  def destroy
+    @farm.destroy! if @farm = Farm.find_by(id: params[:id])
+    render json: {}
+  end
+
   private 
     def farm_params
       params.require(:farm).permit(:farmer_id, :name, :description, :farmer_id)

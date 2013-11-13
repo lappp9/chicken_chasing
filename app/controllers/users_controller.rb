@@ -23,6 +23,11 @@ class UsersController < ApplicationController
       render 'new' 
     end
   end
+
+  def destroy
+    @user.destroy! if @user = User.find_by(id: params[:id])
+    render json: {}
+  end
   
   private 
     def user_params
