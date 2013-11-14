@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   def index
     unless params[:products].nil? 
       @products = Product.where("description LIKE ?", "%#{params[:products][:search]}%") 
