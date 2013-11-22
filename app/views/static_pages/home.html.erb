@@ -1,19 +1,23 @@
-<div class = "col-md-offset-1">
-  <h2>Welcome to Chicken Chasing!</h2>
-  <h4>The best place to buy and sell locally</h4>
+<div class = "row">
+  <div class = "col-md-12" id = "home-tagline">
+    <div class = "col-md-offset-2">
+      <h2>Welcome to Chicken Chasing! <small>The best place to buy and sell locally</small></h2>
+    </div>
+  </div>
 </div>
+
 
 <div class = "row">
 
-  <div class = "col-md-offset-1 col-md-5 home-menu buy-block">
-    <%= form_for :products, url: products_path, method: 'get' do |f| %>
-      <%= f.label  :Find_products_near_you! %>
-      <%= f.text_field :search, placeholder: "Search" %>
-    <% end %>
-  </div>
+    <div class = "col-md-offset-2 col-md-4 home-menu buy-block">
+      <%= form_for :products, url: products_path, method: 'get' do |f| %>
+        <%= f.label  :Find_products_near_you! %>
+        <%= f.text_field :search, placeholder: "Search" %>
+      <% end %>
+    </div>
 
-  <div class = "col-md-5 home-menu sell-block">
-    <%= link_to "Sell", new_farmer_path %>
-  </div>
+    <div class = "col-md-4 home-menu sell-block">
+      <%= link_to "Sell", new_farmer_path %>
+    </div>
 
 </div>
