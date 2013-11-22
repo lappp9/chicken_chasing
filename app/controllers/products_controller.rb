@@ -3,7 +3,9 @@ class ProductsController < ApplicationController
   def index
     unless params[:products].nil? 
       @products = Product.where("description LIKE ?", "%#{params[:products][:search]}%") 
-      @products ||= Product.all.order("name DESC")
+      if @products.blank?
+        @products = Product.all.order("name DESC")
+      end
     else
       @products = Farm.find_by( id: params[:farm_id] ).products
     end
