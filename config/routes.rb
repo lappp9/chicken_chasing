@@ -1,5 +1,4 @@
 ChickenChasing::Application.routes.draw do
-  get "forms/product_form"
   root 'static_pages#home'
 
   resources :users, :products, :farmers, :customers

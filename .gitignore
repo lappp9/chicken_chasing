@@ -17,3 +17,6 @@
 
 # Ignore rbenv file
 /.ruby-version
+
+/*.un~
+/*.sw*
