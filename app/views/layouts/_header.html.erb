@@ -3,7 +3,12 @@
   <span id = "title"><%= link_to 'ChickenChasing', root_path, class: 'menu title' %></span>
 
   <span id = "middleMenu">
-    <%= link_to 'Tour', '#', class: 'menu' %> | <%= link_to 'About', '#', class: 'menu' %>
+    <div class = "left">
+      <%= link_to 'Tour', '#', class: 'menu' %> | 
+    </div>
+    <div id = "cart">
+      <span class = 'glyphicon glyphicon-shopping-cart menu'><span class="badge cart-badge">3</span></span>
+    </div>
   </span>
 
   <span id = "rightMenuSpan">
@@ -31,7 +36,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Would you like to sign up as a buyer or seller?</h4>
+        <h4 class="modal-title" id="myModalLabel">Before you get started, would you like to sign up as a buyer or seller?</h4>
       </div>
       <div class="modal-body">
         <button type="button" class="left btn-lg btn-primary">Seller</button>
@@ -39,6 +44,7 @@
       </div>
       <br />
       <div class="modal-footer">
+        <%= link_to "Cancel", "data-dismiss" => "modal" %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

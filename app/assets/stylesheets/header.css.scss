@@ -3,6 +3,7 @@ $header-alignment: -20%;
 #header
 {
   background-color: #2C594F;
+  min-height: 75px;
   max-height: 500px;
   width: 100%;
   color: white;
@@ -23,13 +24,15 @@ $header-alignment: -20%;
   #logo
   {
     padding-left: 85px;
+    width:20px;
   }
   #middleMenu
   {
+    width:30%;
     vertical-align: middle;
     display: inline-block;
     vertical-align: $header-alignment;
-    padding-left: 180px;
+    padding-left: 150px;
     font-size: 17px;
   }
 
@@ -39,6 +42,24 @@ $header-alignment: -20%;
     padding-top: 15px;
     padding-right: 103px;
     font-size: 15px;
+  }
+  .glyphicon.glyphicon-shopping-cart.menu {
+    margin-left: 7px;
+  }
+  .cart-badge{
+    margin-left:10px;
+    margin-bottom:5px;
+  }
+
+  .badge.cart-badge {
+    position: relative;
+    left: -10px;
+    top: -15px;
+    background-color: #E64661;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 1px;
+    padding-bottom: 4px;
   }
 }
 
