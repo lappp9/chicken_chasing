@@ -8,16 +8,21 @@
 
 
 <div class = "row">
+  <div class = "content col-md-12">
 
-    <div class = "col-md-offset-2 col-md-4 home-menu buy-block">
-      <%= form_for :products, url: products_path, method: 'get' do |f| %>
-        <%= f.label  :Find_products_near_you! %>
-        <%= f.text_field :search, placeholder: "Search" %>
-      <% end %>
+    <div class = "row">
+      <div id = "buy" class = "col-md-offset-2 col-md-3 home-menu buy-block">
+        <%= form_for :products, url: product_search_path, method: 'get' do |f| %>
+          <%= f.label  :Find_products_near_you! %>
+          <%= f.text_field :search, placeholder: "Search" %>
+        <% end %>
+      </div>
+
+      <div id = "sell" class = "col-md-offset-1 col-md-3 home-menu sell-block">
+        <%= link_to "Sell", new_farmer_path %>
+      </div>
     </div>
 
-    <div class = "col-md-4 home-menu sell-block">
-      <%= link_to "Sell", new_farmer_path %>
-    </div>
+  </div>
 
 </div>

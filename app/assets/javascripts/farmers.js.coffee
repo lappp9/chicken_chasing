@@ -4,6 +4,7 @@
 
 $(document).ready ->
 
+  
   window.product_form_count = 1
 
   $(document).keydown (e) ->
@@ -146,8 +147,15 @@ $(document).ready ->
     formFields = $("input[id^=product_]")
     {"product": {"name":formFields[0].value, "description":formFields[1].value, "category":formFields[2].value, "farm_id":farmId }, "ajax":true }
 
+  showAlert = ->
+    $("#myAlert").removeClass "hidden"
+    $("#myAlert").addClass "in"
 
-  
+  window.setTimeout (->
+    showAlert()
+  ), 5000
+
+
 
 
 
