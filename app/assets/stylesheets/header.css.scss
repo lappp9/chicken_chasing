@@ -45,6 +45,7 @@ $header-alignment: -20%;
   }
   .glyphicon.glyphicon-shopping-cart.menu {
     margin-left: 7px;
+    padding-left: 15px;
   }
   .cart-badge{
     margin-left:10px;
@@ -63,3 +64,8 @@ $header-alignment: -20%;
   }
 }
 
+.btn-primary {
+  color: white;
+  background-color:#002D40;
+  border-color:#002D40;
+}
