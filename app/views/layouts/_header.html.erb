@@ -19,7 +19,27 @@
     </ul>
     <ul class = "menu">
       <li><%= link_to '* News','#', class: 'menu' %></li>
-      <li><%= link_to '* Sign Up', signup_path, class: 'menu' %></li>
+      <li><%= link_to '* Sign Up', '#', class: 'menu', "data-target" => "#myModal", "data-toggle" => "modal" %></li>
     </ul>
   </span>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Would you like to sign up as a buyer or seller?</h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="left btn-lg btn-primary">Seller</button>
+        <button type="button" class="right btn-lg btn-primary">Buyer</button>
+      </div>
+      <br />
+      <div class="modal-footer">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
