@@ -35,7 +35,31 @@ $header-alignment: -20%;
     vertical-align: $header-alignment;
     padding-left: 150px;
     font-size: 20 !important;
+
+    .glyphicon.glyphicon-shopping-cart.menu {
+      margin-left: 7px;
+      padding-left: 10px;
+    }
+
+    .glyphicon.glyphicon-comment.menu {
+      margin-right: -5px;
+    }
+
+    .cart-badge{
+      margin-left:10px;
+      margin-bottom:5px;
+      position: relative;
+      left: -13px;
+      top: -15px;
+      background-color: #E64661;
+      padding-left: 3px;
+      padding-right: 3px;
+      padding-top: 1px;
+      padding-bottom: 4px;
+      border-radius:inherit;
+    }  
   }
+
 
   #rightMenuSpan
   {
@@ -44,25 +68,7 @@ $header-alignment: -20%;
     padding-right: 103px;
     font-size: 15px;
   }
-  .glyphicon.glyphicon-shopping-cart.menu {
-    margin-left: 7px;
-    padding-left: 15px;
-  }
-  .cart-badge{
-    margin-left:10px;
-    margin-bottom:5px;
-  }
 
-  .badge.cart-badge {
-    position: relative;
-    left: -10px;
-    top: -15px;
-    background-color: #E64661;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 1px;
-    padding-bottom: 4px;
-  }
 }
 
 .btn-primary {
