@@ -3,10 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-
   
   window.product_form_count = 1
 
+  #
+  # ADD LEFT AND RIGHT CONTROLS FOR ARROW BUTTONS
+  #
   $(document).keydown (e) ->
     if e.keyCode is 39 and not $('#product-form').hasClass('active')
       $(".carousel-control.right").click()
@@ -17,16 +19,9 @@ $(document).ready ->
       $(".carousel-control.left").click()
       false
     
-  $(".next").each ->
-    $(this).click (e) ->
-      e.preventDefault()
-      $(".carousel-control.right").click()
-
-  $(".prev").each ->
-    $(this).click (e) ->
-      e.preventDefault()
-      $(".carousel-control.left").click()
-
+  #
+  # MAKE SURE THE LEFT AND RIGHT CONTROLS ONLY SHOW UP AT THE RIGHT TIMES
+  #
   $('.carousel-control.left').click -> 
     if($('#farm-form').hasClass('active'))
       $('.carousel-control.left').addClass('hidden')
@@ -43,6 +38,9 @@ $(document).ready ->
     if($('#product-form').hasClass('active')) 
       $('.carousel-control.right').removeClass('hidden')
 
+  #
+  # ADD AND REMOVE PRODUCT FORMS VIA AJAX
+  #
   $('#add-product-button').click (e) ->
     e.preventDefault()
 
@@ -61,75 +59,45 @@ $(document).ready ->
     if(window.product_form_count == 1)
       $('#remove-product-button').addClass('hidden')
 
-  # Thus begins callback hell, I fell like it should be just one function but i just wanted to get it
-  # working first so we'll see how refactoring goes.
-  # So if one of these fails should i call a rollback function that sends delete requests for each one?
-  # Write that function to call delete with the ids that have been collected
+  #
+  # ADD EXPLANATION ALERT TO FIRST PAGE OF SIGNUP
+  #
+  showAlert = ->
+    $("#myAlert").removeClass "hidden"
+    $("#myAlert").addClass "in"
+
+  window.setTimeout (->
+    showAlert()
+  ), 5000
+
+  # So this is where all the ajax form submission happens in a chaining sort of way.  Should i let someone 
+  # submit every form seperately and just use farmers/new etc?
+  #
 
   $('#farmer-signup').click (e) ->
     e.preventDefault();
-    postUserData(getUserFormDataAsJson())
-  
-  postUserData = (data) -> 
-    $.ajax
-      type: "POST",
-      url: "/users",
-      data: data 
-      success: (data) ->
-        if(data.id)
-          alert("great user success...")
-          alert("The farmer data is " + JSON.stringify(getFarmFormDataAsJson()) )
-          postFarmerData( getFarmerFormDataAsJson(data.id) )
-        else
-          alert("user failure...")
-    .done ( msg ) ->
-      alert( "All done with user part" )
+    postAllData(getUserFormDataAsJson(), "users")
 
-  postFarmerData = (data) -> 
-    $.ajax
-      type: "POST",
-      url: "/farmers",
-      data: data 
-      success: (data) ->
-        alert("Farmer response "+JSON.stringify(data))
-        if(data.id)
-          alert("great farmer success...")
-          postFarmData( getFarmFormDataAsJson(data.id) )
-        else
-          alert("great farmer failure...")
-    .done ( msg ) ->
-      alert( "done with farmer part" )
+  nextModel = (model) ->
+    if(model == "users")
+      return "farmers"
+    if(model == "farmers")
+      return "farms"
+    if(model == "farms")
+      return "products"
+    if(model == "products")
+      return ""
 
-  postFarmData = (data) -> 
-    $.ajax
-      type: "POST",
-      url: "/farms",
-      data: data 
-      success: (data) ->
-        alert("Farm response "+JSON.stringify(data))
-        if(data.id)
-          alert("great farm success...")
-          alert(JSON.stringify(getProductFormDataAsJson(data.id)))
-          postProductData( getProductFormDataAsJson(data.id) )
-        else
-          alert("great farm failure...")
-    .done ( msg ) ->
-      alert( "done with farm part" )
-
-  postProductData = (data) -> 
-    $.ajax
-      type: "POST",
-      url: "/products",
-      data: data 
-      success: (data) ->
-        alert("Product response "+JSON.stringify(data))
-        if(data.id)
-          alert("great product success...")
-          alert("You submitted everything! Redirect somewhere else or something!")
-        else
-          alert("great product failure...")
-    .done ( msg ) ->
-      alert( "done with product part" )
+  nextFormData = (model, id) ->
+    if(model == "users")
+      alert("the user id is " + id)
+      return getFarmerFormDataAsJson(id)
+    if(model == "farmers")
+      return getFarmFormDataAsJson(id)
+    if(model == "farms")
+      return getProductFormDataAsJson(id)
+    if(model == "products")
+      return ""
 
   getUserFormDataAsJson = ->
     formFields = $("input[id^=user_]")
@@ -147,15 +115,38 @@ $(document).ready ->
     formFields = $("input[id^=product_]")
     {"product": {"name":formFields[0].value, "description":formFields[1].value, "category":formFields[2].value, "farm_id":farmId }, "ajax":true }
 
-  showAlert = ->
-    $("#myAlert").removeClass "hidden"
-    $("#myAlert").addClass "in"
+  window.getFormData = (model, parentId) ->
+    formFields = $("input[id^=" + model + "_]")
+    labels     = $("label[for^=" + model + "_]")
 
-  window.setTimeout (->
-    showAlert()
-  ), 5000
+    jsonForm         = {}
+    jsonForm[model]  = {}
+    jsonForm["ajax"] = true
+    i = 0
+    while i < labels.length
+      jsonForm[model][labels[i].innerHTML.toLowerCase()] = formFields[i].value
+      i++
+    alert JSON.stringify jsonForm
+    jsonForm
 
+  postAllData = (data, model) -> 
+    $.ajax
+      type: "POST",
+      url: "/" + model,
+      data: data 
+      success: (data) ->
+        if(data.id)
+          alert("great " + model + " success..." + "\n now we'll send the " + nextModel(model) + " form")
 
+          nextFormModel = nextModel(model)
+          if(nextFormModel != "" )
+            alert( "the next form data to be sent is " + JSON.stringify(nextFormData(model, data.id) )
+            postAllData( nextFormData(model, data.id), nextModel(model)) ) 
+        else
+          alert(model + " failure...")
+          alert(" The response was " + JSON.stringify(data) )
+    .done ( msg ) ->
+      alert( "All done with " + model + "part" )
 
 
 

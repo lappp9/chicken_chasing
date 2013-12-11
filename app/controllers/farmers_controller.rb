@@ -10,6 +10,7 @@ class FarmersController < ApplicationController
     @user = User.find_by(id: params[:user_id])
     @farmer = Farmer.new(farmer_params)
     @farmer.user = @user
+debugger 
     if @farmer.save && @user
       sign_in @farmer.user 
       render json: @farmer 
