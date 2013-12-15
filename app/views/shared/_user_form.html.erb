@@ -1,18 +1,17 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages' %>
 
-
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, type:"text", "ng-model" => "user.name" %>
 
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email, type:"text", "ng-model" => "user.email" %>
 
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, "ng-model" => "user.password" %>
 
   <%= f.label :password_confirmation, "Confirmation" %>
-  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation, "ng-model" => "user.password_confirmation" %>
 
   <%= f.submit "Create my account", class: "hidden btn btn-large btn-primary" %>
 <% end %>

@@ -3,17 +3,17 @@
   <div class = "row">
     <div class = "col-md-4">
       <%= f.label "The product's name" %>
-      <%= f.text_field :name  %>
+      <%= f.text_field :name, "ng-model" => "product.name"  %>
     </div>
 
     <div class = "col-md-4">
       <%= f.label "Add a description of the product" %>
-      <%= f.text_field :description %>
+      <%= f.text_field :description, "ng-model" => "product.description" %>
     </div>
 
     <div class = "col-md-4">
-      <%= f.label "Which category is this product in? " %> 
-      <%= f.text_field :category %>
+      <%= f.label "Which category is this product in?" %> 
+      <%= f.text_field :category, "ng-model" => "product.category" %>
     </div>
   </div>
 <% end %>

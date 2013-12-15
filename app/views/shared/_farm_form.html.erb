@@ -1,17 +1,11 @@
-<%= form_for(@farm, html: { role: "form" } ) do |f| %>
-  <div class = "form-group">
-    <%= f.label "What's the name of your farm?", for: "farm_name" %>
-    <%= f.text_field :name  %>
-  </div>
-  <div class = "form-group">
-    <%= f.label "Describe your farm in a sentence or two", for: "farm_description" %>
-    <%= f.text_field :description  %>
-  </div>
+<%= form_for(@farm) do |f| %>
 
-  <div class = "form-group">
-    <%= f.label "Now that we know what you sell, what are your delivery options? Just describe them in a sentence or two.", for: "farm_delivery_options" %>
-    <%= f.text_area :delivery_options %>
-  </div>
+  <%= f.label "What's the name of your farm?" %>
+  <%= f.text_field :name, "ng-model" => "farm.name" %>
 
+  <%= f.label "Describe your farm in a sentence or two" %>
+  <%= f.text_field :description, "ng-model" => "farm.description" %>
+
+  <%= f.submit "Next", class: "hidden btn btn-small " %>
 <% end %>
 
