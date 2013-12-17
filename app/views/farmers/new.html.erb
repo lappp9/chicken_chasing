@@ -9,8 +9,13 @@
         When you're done you can click the <strong>right arrow</strong> or press the <strong>right arrow key</strong> to move on!
       </h4>
       <div class = "direction-arrow"></div>
+      <div class = "errors">
+        {{ user_errors }}
+        {{ farmer_errors }} 
+      </div>
 
       <h2> Getting Started?</h2>
+
       <strong>
         <p> 
         <h4>
@@ -29,6 +34,11 @@
       <h2>
         Now add information about your farm!
       </h2>
+      <div class = "errors">
+        {{ farm_errors }}
+      </div>
+
+
       <%= render "shared/farm_form" %>
     </div>
 
@@ -38,6 +48,10 @@
       <h2>
         And finally, add some products you would like to offer!
       </h2>
+      <div class = "errors">
+        {{ product_errors }}
+      </div>
+
 
       <div id = "product-list">
         <%= render "shared/product_form" %>
@@ -47,7 +61,7 @@
       <%= link_to "Remove product", "#", class: "btn btn-small hidden right", id: "remove-product-button" %>
       <br />
       <br />
-      <%= link_to "Finish signup!", farmer_path(@farmer), id: "farmer-signup",class: "btn-primary btn btn-small right", "ng-click" => "submitFarmerSignup()" %>
+      <%= link_to "Finish signup!", farmer_path(@farmer), id: "farmer-signup",class: "btn-primary btn btn-small right", "ng-click" => "submitAllFormsInOrder()" %>
     
     </div>
 

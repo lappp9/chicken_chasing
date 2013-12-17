@@ -9,13 +9,18 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    debugger
 
-    if @user.save
+    if params[:ajax] && @user.save
       sign_in @user 
       render json: @user
-    else @user.errors
+    elsif params[:ajax] && @user.errors
       render json: @user.errors
+    elsif @user.save 
+      sign_in @user
+      flash[:success] = "Congratulations! You've signed up for Chicken Chasing!"
+      redirect_to @user
+    else
+      render 'new' 
     end
   end
 
