@@ -1,79 +1,83 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false" ng-controller = "farmerSignupCtl">
 
-  <div class="carousel-inner row">
+<div ng-controller = "farmerSignupCtl">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false" >
 
-    <div class = "form-page item active col-md-8 col-md-offset-2" id = "farmer-form">
+    <div class="carousel-inner row">
 
-      <h4 class = "alert alert-info fade hidden" id = "myAlert">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        When you're done you can click the <strong>right arrow</strong> or press the <strong>right arrow key</strong> to move on!
-      </h4>
-      <div class = "direction-arrow"></div>
-      <div class = "errors">
-        {{ user_errors }}
-        {{ farmer_errors }} 
-      </div>
+      <div class = "form-page item active col-md-8 col-md-offset-2" id = "farmer-form">
 
-      <h2> Getting Started?</h2>
-
-      <strong>
-        <p> 
-        <h4>
-          To begin, enter some basic information to set up your profile.
+        <h4 class = "alert alert-info fade hidden" id = "myAlert">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          When you're done you can click the <strong>right arrow</strong> or press the <strong>right arrow key</strong> to move on!
         </h4>
-        </p>
-      </strong>
-      <%= render "shared/user_form" %>
-      <%= render "shared/farmer_form" %>
+        <div class = "direction-arrow"></div>
+        <div class = "errors">
+          {{ user_errors }}
+          {{ farmer_errors }} 
+        </div>
 
-    </div>
+        <h2> Getting Started?</h2>
 
+        <strong>
+          <p> 
+          <h4>
+            To begin, enter some basic information to set up your profile.
+          </h4>
+          </p>
+        </strong>
+        <%= render "shared/user_form" %>
+        <%= render "shared/farmer_form" %>
 
-
-    <div class = "item form-page col-md-8 col-md-offset-2" id = "farm-form">
-      <h2>
-        Now add information about your farm!
-      </h2>
-      <div class = "errors">
-        {{ farm_errors }}
       </div>
 
 
-      <%= render "shared/farm_form" %>
-    </div>
+
+      <div class = "item form-page col-md-8 col-md-offset-2" id = "farm-form">
+        <h2>
+          Now add information about your farm!
+        </h2>
+        <div class = "errors">
+          {{ farm_errors }}
+        </div>
 
 
-
-    <div class = "item form-page col-md-8 col-md-offset-2" id = "product-form" >
-      <h2>
-        And finally, add some products you would like to offer!
-      </h2>
-      <div class = "errors">
-        {{ product_errors }}
+        <%= render "shared/farm_form" %>
       </div>
 
 
-      <div id = "product-list">
-        <%= render "shared/product_form" %>
+
+      <div class = "item form-page col-md-8 col-md-offset-2" id = "product-form" >
+        <h2>
+          And finally, add some products you would like to offer!
+        </h2>
+        <div class = "errors">
+          {{ product_errors }}
+        </div>
+
+
+        <div id = "product-list">
+          <%= render "shared/product_form" %>
+        </div>
+
+        <%= link_to "Add another product", "#", class: "btn btn-small left", id: "add-product-button" %>
+        <%= link_to "Remove product", "#", class: "btn btn-small hidden right", id: "remove-product-button" %>
+        <br />
+        <br />
+        <%= link_to "Finish signup!", farmer_path(@farmer), id: "farmer-signup",class: "btn-primary btn btn-small right", "ng-click" => "submitAllFormsInOrder()" %>
+      
       </div>
 
-      <%= link_to "Add another product", "#", class: "btn btn-small left", id: "add-product-button" %>
-      <%= link_to "Remove product", "#", class: "btn btn-small hidden right", id: "remove-product-button" %>
-      <br />
-      <br />
-      <%= link_to "Finish signup!", farmer_path(@farmer), id: "farmer-signup",class: "btn-primary btn btn-small right", "ng-click" => "submitAllFormsInOrder()" %>
-    
     </div>
-
   </div>
-</div>
 
-<a class="left carousel-control hidden" href="#carousel-example-generic" data-slide="prev"> 
-  <span class="glyphicon glyphicon-chevron-left"></span>
-</a>
-<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-  <span class="glyphicon glyphicon-chevron-right"></span>
-</a>
+  <a class="left carousel-control hidden" href="#carousel-example-generic" ng-click = "decreasePage()" data-slide="prev"> 
+    <span  ng-click = "decreasePage()" class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" ng-click = "increasePage()" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+{{ current_page }} 
+</div>
 
 
 
