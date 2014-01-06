@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @farm = Farm.find_by( id: current_user.farm_id )
+
     unless @farm
       flash[:info] = "Please sign in to add a product!"
       redirect_to login_path
@@ -27,8 +28,6 @@ class ProductsController < ApplicationController
   
   def create 
     @product = Product.new product_params 
-
-    debugger
 
     if @product.save
       redirect_to product_path(@product)

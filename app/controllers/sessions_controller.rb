@@ -7,7 +7,12 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate( params[:session][:password] )
       sign_in @user
-      redirect_to @user
+      if @user.is_farmer?
+        redirect_to @user.farmer
+      else
+        redirect_to @user
+      end
+        
     else
       flash.now[:error] = "Invalid password/email combination"
       render 'new'

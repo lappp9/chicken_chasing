@@ -5,10 +5,23 @@ class FarmsController < ApplicationController
   
   def show
     @farm = Farm.find_by id: params[:id]
+
+    unless @farm
+      if current_user.is_farmer?
+        flash[:warning] = "That farm doesn't exist but you can create it!"
+        redirect_to new_farm_path
+      else
+        redirect_to root_path
+      end
+    end
+
   end
 
   def new 
     @farm = Farm.new
+    if current_user.farmer.farm
+      flash.now[:danger] = "Creating a new farm will overrite your current farm!"
+    end
   end
 
   def create
@@ -19,7 +32,8 @@ class FarmsController < ApplicationController
       flash[:success] = "Farm successfully created!"
       redirect_to new_product_path
     else
-      render json: @farm.errors
+      flash[:danger] = "Something went wrong with your submission!"
+      render 'new'
     end
   end
 

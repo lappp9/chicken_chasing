@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
   def farmer
     Farmer.find_by id: self.profile_id
   end
+
+  def is_farmer?
+    self.profile_type == "Farmer"
+  end
   
   def farm_id
     self.farmer.farm.id
