@@ -1,1 +1,38 @@
-<%= @farm.inspect %>
+<div id = "farm-banner" class = "row">
+  <div class = "col-md-8 col-md-offset-5">
+    <h3><%= @farm.name %> <small><%= @farm.description %></small></h3>
+  </div>
+</div>
+
+<div id = "farm-menu" class = "col-md-8 col-md-offset-2">
+  <div id = "profile-picture" class = "col-md-3"> <%= image_tag @farm.photo_url, width: 200, height: 200 %></div>
+
+  <div id = "farm-menu" class = "col-md-9">
+    <%= link_to "Products", farm_products_path(@farm) %>
+  </div>
+</div>
+
+<%= render "shared/search_controls" %>
+<div id = "farm-products">
+  <% @products.each do |p| %>
+    <div class = "col-md-offset-2 col-md-8 search-result row">
+      <div class = "row">
+
+        <div class = "col-md-2 product-picture">
+          <%= image_tag p.photo_url, width: 100, height: 100 %> 
+        </div>
+
+        <div class = "col-md-8 product-details">
+          <h3> <%= p.name %>        </h3>
+          <p>  <%= p.description %> <p>
+          <%= link_to "View Product", product_path(p), class: "product-link" %>
+        </div>
+
+        <div class = "col-md-2 farm-picture">
+          <%= image_tag p.farm.photo_url, width: 125, height:100 %>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+</div>

@@ -5,6 +5,7 @@ class FarmsController < ApplicationController
   
   def show
     @farm = Farm.find_by id: params[:id]
+    @products = @farm.products
 
     unless @farm
       if current_user.is_farmer?
