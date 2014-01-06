@@ -1,1 +1,30 @@
-<%= @product.inspect %>
+
+<div id = "sidebar" class = "col-md-3" style = "border: 1px solid black;">
+
+  <div id = "product-image">
+    <%= image_tag @product.photo_url, width: 300, height: 300 %> 
+  </div>
+
+  <div id = "sidebar-options">
+  </div>
+
+</div>
+
+<div id = "content" class = "col-md-6" style = "border: 1px solid black;">
+  <div id = "product-info">
+    <dl>
+      <h3><dt><strong>Product Name:</strong> <%= @product.name %></dt></h3>
+      <dt><strong>Sold By:</strong> <%= @product.farmer.user.name %></dt>
+      <dt><strong>Rating:</strong> <%= @product.rating %></dt>
+      <dt><strong>Price:</strong> $<%= @product.price %> </dt>
+    </dl>
+
+    <div id = "product-description">
+      <p>Description: <%= @product.description %> </p>
+    </div>
+  </div>
+</div>
+
+<div id = "cart-controls" class = "col-md-3">
+  This is where the add to cart stuff goes!
+</div>

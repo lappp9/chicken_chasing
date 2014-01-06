@@ -18,6 +18,14 @@ class User < ActiveRecord::Base
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
+  
+  def farmer
+    Farmer.find_by id: self.profile_id
+  end
+  
+  def farm_id
+    self.farmer.farm.id
+  end
 
     private
 

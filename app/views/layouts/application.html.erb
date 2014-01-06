@@ -8,8 +8,9 @@
     <%= render 'layouts/header' %>
 
     <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>">
-        <div class = "offset2"><%= value %></div>
+      <div class="col-md-8 col-md-offset-2 alert alert-<%= key %>">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <div class = ""><%= value %></div>
       </div>
     <% end %>
 

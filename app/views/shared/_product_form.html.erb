@@ -10,10 +10,10 @@
   <%= f.text_field :category, "ng-model" => "product.category" %>
 
   <%= f.label "What's the url of a photo of your product?" %> 
-  <%= f.text_field :photo_url, "ng-model" => "product.category" %>
+  <%= f.text_field :photo_url, "ng-model" => "product.photo_url" %>
 
   <%= f.label "At what price do you want to sell it?" %> 
-  <%= f.text_field :price, "ng-model" => "product.category" %>
+  <%= f.text_field :price, "ng-model" => "product.price" %>
 
   <%= hidden_field_tag "product[farm_id]", @farm.id %>
 
