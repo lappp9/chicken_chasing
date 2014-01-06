@@ -1,8 +1,6 @@
 class FarmersController < ApplicationController
   def new
-    @product = Product.new
     @farmer  = Farmer.new
-    @farm    = Farm.new
     @user    = User.new
   end
 
@@ -13,10 +11,18 @@ class FarmersController < ApplicationController
 
     if @farmer.save && @user
       sign_in @farmer.user 
+      flash[:success] = "Congratulations your farmer profile was created successfully!"
+      session[:farmer_id] = @farmer.id
       render json: @farmer 
+    elsif @farmer.save
+      render json: { error: "No user id present" }
     else
       render json: @farmer.errors
     end
+  end
+
+  def show 
+    @farmer = Farmer.find_by id: params[:id]
   end
 
   def destroy

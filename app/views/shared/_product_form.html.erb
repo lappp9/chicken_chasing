@@ -1,20 +1,26 @@
 <%= form_for(@product) do |f| %>
 
-  <div class = "row">
-    <div class = "col-md-4">
-      <%= f.label "The product's name" %>
-      <%= f.text_field :name, "ng-model" => "product.name"  %>
-    </div>
+  <%= f.label "The product's name" %>
+  <%= f.text_field :name, "ng-model" => "product.name"  %>
 
-    <div class = "col-md-4">
-      <%= f.label "Add a description of the product" %>
-      <%= f.text_field :description, "ng-model" => "product.description" %>
-    </div>
+  <%= f.label "Add a description of the product" %>
+  <%= f.text_field :description, "ng-model" => "product.description" %>
 
-    <div class = "col-md-4">
-      <%= f.label "Which category is this product in?" %> 
-      <%= f.text_field :category, "ng-model" => "product.category" %>
-    </div>
-  </div>
+  <%= f.label "Which category is this product in?" %> 
+  <%= f.text_field :category, "ng-model" => "product.category" %>
+
+  <%= f.label "What's the url of a photo of your product?" %> 
+  <%= f.text_field :photo_url, "ng-model" => "product.category" %>
+
+  <%= f.label "At what price do you want to sell it?" %> 
+  <%= f.text_field :price, "ng-model" => "product.category" %>
+
+  <%= hidden_field_tag "product[farm_id]", @farm.id %>
+
+  <br />
+  <br />
+
+  <%= f.submit "Add your product!", class: "btn btn-warning" %>
+
 <% end %>
 

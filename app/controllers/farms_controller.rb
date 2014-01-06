@@ -7,11 +7,17 @@ class FarmsController < ApplicationController
     @farm = Farm.find_by id: params[:id]
   end
 
+  def new 
+    @farm = Farm.new
+  end
+
   def create
     @farm = Farm.new farm_params
 
     if @farm.save
-      render json: @farm
+      session[:farm_id] = @farm.id
+      flash[:success] = "Farm successfully created!"
+      redirect_to new_product_path
     else
       render json: @farm.errors
     end
@@ -24,6 +30,6 @@ class FarmsController < ApplicationController
 
   private 
     def farm_params
-      params.require(:farm).permit(:farmer_id, :name, :description, :farmer_id)
+      params.require(:farm).permit(:name, :description, :farmer_id)
     end
 end

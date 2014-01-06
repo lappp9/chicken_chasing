@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @farm = Farm.find_by(id: session[:farm_id])
   end
 
   def show 
@@ -23,7 +24,7 @@ class ProductsController < ApplicationController
     @product = Product.new product_params 
 
     if @product.save
-      render json: @product
+      redirect_to farmer_path(@product.farm.farmer)
     else
       render json: @product.errors
     end

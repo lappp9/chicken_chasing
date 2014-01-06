@@ -1,11 +1,17 @@
 <%= form_for(@farm) do |f| %>
 
   <%= f.label "What's the name of your farm?" %>
-  <%= f.text_field :name, "ng-model" => "farm.name" %>
+  <%= f.text_field :name %>
 
   <%= f.label "Describe your farm in a sentence or two" %>
-  <%= f.text_field :description, "ng-model" => "farm.description" %>
+  <%= f.text_field :description %>
 
-  <%= f.submit "Next", class: "hidden btn btn-small " %>
+  <%= hidden_field_tag "farm[farmer_id]", session[:farmer_id] %>
+
+  <br />
+  <br />
+
+  <%= f.submit "Now let's move on to setting up the products you'll sell!", class: "btn-warning btn " %>
+
 <% end %>
 
