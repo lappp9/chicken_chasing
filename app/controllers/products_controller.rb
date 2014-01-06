@@ -8,6 +8,17 @@ class ProductsController < ApplicationController
       end
   end
 
+  def index
+    if params.has_key? :farm_id
+      @products = Product.where "farm_id = #{params[:farm_id]}" 
+    else
+      @products = Product.all
+    end
+    debugger
+    
+    a = 1
+  end
+
   def new
     @product = Product.new
     @farm = Farm.find_by( id: current_user.farm_id )
