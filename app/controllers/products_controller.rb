@@ -14,9 +14,6 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
-    debugger
-    
-    a = 1
   end
 
   def new
