@@ -42,8 +42,8 @@
         <h4 class="modal-title" id="myModalLabel">Before you get started, would you like to sign up as a buyer or seller?</h4>
       </div>
       <div class="modal-body">
-        <button type="button" class="left btn-lg btn-primary">Seller</button>
-        <button type="button" class="right btn-lg btn-primary">Buyer</button>
+        <%= link_to "Buyer", new_user_path, method: :get, class: "btn btn-lg btn-primary right" %>
+        <%= link_to "Seller", new_farmer_path, method: :get, class: "btn btn-lg btn-primary left" %>
       </div>
       <br />
       <div class="modal-footer">
