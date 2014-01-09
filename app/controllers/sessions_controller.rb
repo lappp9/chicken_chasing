@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       end
         
     else
-      flash.now[:error] = "Invalid password/email combination"
+      flash.now[:danger] = "Invalid password/email combination"
       render 'new'
     end
   end

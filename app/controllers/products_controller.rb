@@ -1,14 +1,10 @@
 class ProductsController < ApplicationController
 
   def search_results
-    unless params[:products].nil? 
-      @products = Product.where("description LIKE ?", "%#{params[:products][:search]}%") 
-      if @products.blank?
-        flash.now[:info] = "Your search returned 0 results but feel free to browse!"
-        @products = Product.all.order("name DESC")
-      end
-    else
-      @products = Farm.find_by( id: params[:farm_id] ).products
+    @products = product_results
+    if @products.count == 0
+      flash.now[:info] = "Your search returned 0 results but feel free to browse!"
+      @products = Product.all.order("name DESC")
     end
   end
 
@@ -53,9 +49,16 @@ class ProductsController < ApplicationController
     render json: {}
   end
 
+
   private
     def product_params
       params.require(:product).permit(:name, :description, :category, :price, :photo_url, :farm_id)
+    end
+
+    def product_results
+      products_by_desc = Product.where("description LIKE ?", "%#{params[:products][:search]}%") 
+      products_by_name = Product.where("name LIKE ?", "%#{params[:products][:search]}%") 
+      products_by_name + products_by_desc
     end
 end
 
