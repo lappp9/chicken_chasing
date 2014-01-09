@@ -10,7 +10,9 @@
       <div class = "col-md-8 product-details">
         <h3> <%= p.name %>        </h3>
         <p>  <%= p.description %> <p>
+        <%= link_to "Add to Cart", "#", class: "product-link" %>
         <%= link_to "View Product", product_path(p), class: "product-link" %>
+        <%= link_to "View Farm", farm_path(p.farm), class: "product-link" %>
       </div>
 
       <div class = "col-md-2 farm-picture">

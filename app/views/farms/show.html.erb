@@ -29,6 +29,7 @@
         <div class = "col-md-8 product-details">
           <h3> <%= p.name %>        </h3>
           <p>  <%= p.description %> <p>
+          <%= link_to "Add to Cart", "#", class: "product-link" %>
           <%= link_to "View Product", product_path(p), class: "product-link" %>
         </div>
 
