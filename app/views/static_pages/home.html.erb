@@ -6,23 +6,22 @@
   </div>
 </div>
 
-
 <div class = "row">
-  <div class = "content col-md-12">
 
-    <div class = "row">
-      <div id = "buy" class = "col-md-offset-2 col-md-3 home-menu buy-block">
-        <%= form_for :products, url: product_search_path, method: 'get' do |f| %>
-          <%= f.label  :Find_products_near_you! %>
-          <%= f.text_field :search, placeholder: "Search" %>
-        <% end %>
+  <div class = "col-md-offset-2 col-md-3" >
+    <%= form_tag( product_search_path, method: :get, class: "form-inline", role: "form"  ) do %>
+      <div class = "form-group" id = "product-search">
+        <%= label_tag "Find products near you!" %>
+        <%= text_field_tag :product_search, "", class: "form-control", placeholder: "Eggs, Milk, etc." %>
       </div>
+    <% end %>
+  </div>
 
-      <div id = "sell" class = "col-md-offset-1 col-md-3 home-menu sell-block">
-        <%= link_to "Sell", new_farmer_path %>
-      </div>
-    </div>
-
+  <div id = "sell" class = "col-md-offset-1 col-md-3">
+    <br />
+    <%= button_to "Sell", new_farmer_path, class: "btn btn-large btn-warning", method: :get %>
   </div>
 
 </div>
+
+

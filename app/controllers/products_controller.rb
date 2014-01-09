@@ -56,8 +56,8 @@ class ProductsController < ApplicationController
     end
 
     def product_results
-      products_by_desc = Product.where("description LIKE ?", "%#{params[:products][:search]}%") 
-      products_by_name = Product.where("name LIKE ?", "%#{params[:products][:search]}%") 
+      products_by_desc = Product.where("description LIKE ?", "%#{params[:product_search]}%") 
+      products_by_name = Product.where("name LIKE ?", "%#{params[:product_search]}%") 
       products_by_name + products_by_desc
     end
 end
