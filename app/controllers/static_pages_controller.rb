@@ -1,12 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    if signed_in?
-      if current_user.is_farmer?
-        redirect_to current_user.farmer
-      else
-        redirect_to current_user
-      end
-    end
+    redirect_to current_user.farmer if signed_in? && current_user.is_farmer?
   end
 
   def about
@@ -16,9 +10,6 @@ class StaticPagesController < ApplicationController
   end
 
   def premium
-  end
-
-  def signup_options
   end
 
 end

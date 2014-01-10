@@ -1,4 +1,6 @@
 class FarmersController < ApplicationController
+  before_action :is_logged_in_farmer?, only: :show
+
   def new
     @farmer  = Farmer.new
     @user    = User.new
@@ -32,6 +34,12 @@ class FarmersController < ApplicationController
 
 
   private
+    def is_logged_in_farmer? 
+      unless signed_in? && (current_user.farmer == Farmer.find_by( id: params[:id]))
+        redirect_to root_path
+      end
+    end
+
     def farmer_params
       params.require(:farmer).permit(:favorite_quotes, :role_models, :personal_philosophy)
     end
