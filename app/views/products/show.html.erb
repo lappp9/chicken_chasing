@@ -1,13 +1,11 @@
 
-<div id = "sidebar" class = "col-md-3" style = "border: 1px solid black;">
-
+<div id = "sidebar" class = "col-md-3">
   <div id = "product-image">
     <%= image_tag @product.image.url(:medium), class: "right" %>
   </div>
-
 </div>
 
-<div id = "content" class = "col-md-6" style = "border: 1px solid black;">
+<div id = "content" class = "col-md-6" >
   <div id = "product-info">
     <dl>
       <h3><dt><strong>Product Name:</strong> <%= @product.name %></dt></h3>

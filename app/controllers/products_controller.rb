@@ -16,6 +16,10 @@ class ProductsController < ApplicationController
       else
         @products = Product.where "farm_id = #{params[:farm_id]}" 
       end
+      if @products.count == 0
+        flash.now[:info] = "Your search returned 0 results but feel free to browse!"
+        @products = Product.where "farm_id = #{params[:farm_id]}" 
+      end
     else
       @products = Product.all
     end
