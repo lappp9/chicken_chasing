@@ -2,7 +2,7 @@
   <aside class="col-md-offset-2 col-md-8">
   <section>
   <h1>
-    <%= gravatar_for @user %>
+    <%= image_tag @user.avatar.url(:thumb) %>
     <%= @user.name %>
   </h1>
   </section>

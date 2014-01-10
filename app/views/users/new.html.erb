@@ -12,8 +12,11 @@
     <%= f.label :password %>
     <%= f.password_field :password %>
 
-    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.label :password_confirmation, "Password Confirmation" %>
     <%= f.password_field :password_confirmation %>
+
+    <%= f.label :avatar, "Upload your profile picture!" %>
+    <%= f.file_field :avatar %>
 
     <br />
     <br />
