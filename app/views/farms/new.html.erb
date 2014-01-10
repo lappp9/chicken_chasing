@@ -1,12 +1,34 @@
 <div class = "form-page item active col-md-8 col-md-offset-2" id = "farmer-form" ng-controller = "farmSignupCtl">
-    <strong>
+  <strong>
     <p> 
     <h3>
       Now that your account is set up, tell us a little bit about your farm. 
     </h3>
     </p>
   </strong>
-  <%= render "shared/farm_form" %>
+
+  <%= form_for(@farm) do |f| %>
+
+    <%= f.label "What's the name of your farm?" %>
+    <%= f.text_field :name %>
+
+    <%= f.label "Describe your farm in a sentence or two" %>
+    <%= f.text_field :description %>
+
+    <%= f.label "Upload a photo of your farm!" %>
+    <%= f.file_field :image %>
+
+
+    <%= hidden_field_tag "farm[farmer_id]", session[:farmer_id] %>
+
+    <br />
+    <br />
+
+    <%= f.submit "Now let's move on to setting up the products you'll sell!", class: "btn-warning btn " %>
+
+  <% end %>
+
+
   <br />
 </div>
 

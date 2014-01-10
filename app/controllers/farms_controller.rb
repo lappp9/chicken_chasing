@@ -24,8 +24,12 @@ class FarmsController < ApplicationController
 
   def new 
     @farm = Farm.new
-    if current_user.farmer.farm
-      flash.now[:danger] = "Creating a new farm will overwrite your current farm!"
+    if !current_user.nil? && current_user.farmer.farm
+      flash[:danger] = "Your farm has already been created."
+      redirect_to farmer_path(current_user.farmer)
+    elsif current_user.nil?
+      flash[:danger] = "You have to sign up to create a farm!"
+      redirect_to new_farmer_path
     end
   end
 
@@ -37,7 +41,7 @@ class FarmsController < ApplicationController
       flash[:success] = "Farm successfully created!"
       redirect_to new_product_path
     else
-      flash[:danger] = "Something went wrong with your submission!"
+      flash.now[:danger] = "Something went wrong with your submission!"
       render 'new'
     end
   end
@@ -49,7 +53,7 @@ class FarmsController < ApplicationController
 
   private 
     def farm_params
-      params.require(:farm).permit(:name, :description, :farmer_id)
+      params.require(:farm).permit(:name, :description, :farmer_id, :image)
     end
 
     def farm_doesnt_exist_and_user_is_logged_in?

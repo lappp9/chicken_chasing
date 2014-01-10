@@ -1,14 +1,39 @@
 <div class = "form-page item active col-md-8 col-md-offset-2" id = "farmer-form" ng-controller = "farmSignupCtl">
   <div class = "errors">
   </div>
-    <strong>
+  <strong>
     <p> 
     <h4>
       Add a new product to your inventory!
     </h4>
     </p>
   </strong>
-  <%= render "shared/product_form" %>
+  <%= form_for(@product) do |f| %>
+
+    <%= f.label "The product's name" %>
+    <%= f.text_field :name, "ng-model" => "product.name"  %>
+
+    <%= f.label "Add a description of the product" %>
+    <%= f.text_field :description, "ng-model" => "product.description" %>
+
+    <%= f.label "Which category is this product in?" %> 
+    <%= f.text_field :category, "ng-model" => "product.category" %>
+
+    <%= f.label "At what price do you want to sell it?" %> 
+    <%= f.text_field :price, "ng-model" => "product.price" %>
+
+    <%= f.label "Upload a photo of your product!" %> 
+    <%= f.file_field :image %>
+
+    <%= hidden_field_tag "product[farm_id]", @farm.id %>
+
+    <br />
+    <br />
+
+    <%= f.submit "Add your product!", class: "btn btn-warning" %>
+
+  <% end %>
+
 
   <br />
 </div>

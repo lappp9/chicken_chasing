@@ -5,7 +5,7 @@
 </div>
 
 <div class = "col-md-8 col-md-offset-2">
-  <div id = "profile-picture" class = "col-md-3"> <%= image_tag @farm.photo_url, width: 200, height: 200, class: "thumbnail" %></div>
+  <div id = "profile-picture" class = "col-md-3"> <%= image_tag @farm.image.url(:medium), class: "thumbnail" %></div>
 
   <div id = "farm-menu" class = "col-md-12">
     <%= link_to "Products", farm_products_path(@farm), class: "menu-link" %> | 
@@ -23,7 +23,7 @@
       <div class = "row">
 
         <div class = "col-md-2 product-picture">
-          <%= image_tag p.photo_url, width: 100, height: 100 %> 
+          <%= image_tag p.image.url(:thumb) %>
         </div>
 
         <div class = "col-md-8 product-details">
@@ -34,7 +34,7 @@
         </div>
 
         <div class = "col-md-2 farm-picture">
-          <%= image_tag p.farm.photo_url, width: 125, height:100 %>
+          <%= image_tag p.farm.image.url(:thumb) %>
         </div>
       </div>
 
