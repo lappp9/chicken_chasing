@@ -2,10 +2,7 @@
 <div id = "sidebar" class = "col-md-3" style = "border: 1px solid black;">
 
   <div id = "product-image">
-    <%= image_tag @product.photo_url, width: 300, height: 300 %> 
-  </div>
-
-  <div id = "sidebar-options">
+    <%= image_tag @product.image.url(:medium), class: "right" %>
   </div>
 
 </div>

@@ -15,6 +15,10 @@
   <%= f.label "At what price do you want to sell it?" %> 
   <%= f.text_field :price, "ng-model" => "product.price" %>
 
+  <br />
+  <br />
+  <%= f.file_field :image %>
+
   <%= hidden_field_tag "product[farm_id]", @farm.id %>
 
   <br />
