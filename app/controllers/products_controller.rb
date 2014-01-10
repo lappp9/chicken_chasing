@@ -9,8 +9,13 @@ class ProductsController < ApplicationController
   end
 
   def index
+
     if params.has_key? :farm_id
-      @products = Product.where "farm_id = #{params[:farm_id]}" 
+      if params.has_key? :product_search
+        @products = Product.where "farm_id = ? and (description like ? or name like ?)", params[:farm_id], "%#{params[:product_search]}%", "%#{params[:product_search]}%"
+      else
+        @products = Product.where "farm_id = #{params[:farm_id]}" 
+      end
     else
       @products = Product.all
     end
@@ -33,7 +38,7 @@ class ProductsController < ApplicationController
       redirect_to new_product_path
     end
   end
-  
+
   def create 
     @product = Product.new product_params 
 
@@ -51,14 +56,14 @@ class ProductsController < ApplicationController
 
 
   private
-    def product_params
-      params.require(:product).permit(:name, :description, :category, :price, :photo_url, :farm_id, :image)
-    end
+  def product_params
+    params.require(:product).permit(:name, :description, :category, :price, :photo_url, :farm_id, :image)
+  end
 
-    def product_results
-      products_by_desc = Product.where("description LIKE ?", "%#{params[:product_search]}%") 
-      products_by_name = Product.where("name LIKE ?", "%#{params[:product_search]}%") 
-      products_by_name + products_by_desc
-    end
+  def product_results
+    products_by_desc = Product.where("description LIKE ?", "%#{params[:product_search]}%") 
+    products_by_name = Product.where("name LIKE ?", "%#{params[:product_search]}%") 
+    products_by_name + products_by_desc
+  end
 end
 

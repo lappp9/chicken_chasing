@@ -16,7 +16,25 @@
   </div>
 </div>
 
-<%= render "shared/search_controls" %>
+<div class = "col-md-offset-2 col-md-8 row">
+
+  <%= form_tag( farm_products_path(@farm), method: :get, class: "form-inline", role: "form"  ) do %>
+    <div class = "form-group col-md-3" id = "product-search">
+      <small><%= label_tag "Product" %></small>
+      <%= text_field_tag :product_search, "", class: "form-control", placeholder: "Eggs, Milk, etc." %>
+    </div>
+  <% end %>
+
+  <div class = "form-group col-md-3" id = "sorting-controls">
+    <small><%= label_tag "Sort By" %></small>
+    <%= select_tag :sort_by, "<option>Price</option><option>Distance</option>".html_safe, class: "form-control" %>
+  </div>
+
+
+</div>
+
+
+
 <div id = "farm-products">
   <% @products.each do |p| %>
     <div class = "col-md-offset-2 col-md-8 search-result row">
