@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 gem 'bootstrap-sass-rails'
 
 gem 'paperclip', '~> 3.0'
+gem 'aws-sdk', '~> 1.5.7'
+
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
