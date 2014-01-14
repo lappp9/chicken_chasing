@@ -1,27 +1,34 @@
 <div id = "content">
 
-  <div class = "row" id = "banner">
-    <div class = "col-md-12" id = "home-tagline">
-      <div class = "col-md-offset-2">
-        <h2>Welcome to Chicken Chasing! <small>The best place to buy and sell locally</small></h2>
-      </div>
+  <div class = "" id = "banner">
+
+    <div class = "transparency" >
     </div>
+
+    <div class = "banner-content col-md-12" id = "home-tagline">
+        <h3 class = "col-md-offset-2">Welcome to Chicken Chasing! The best place to buy and sell locally.</h3>
+    </div>
+
   </div>
 
-  <div class = "row" id = "paths">
 
-    <div class = "col-md-offset-2 col-md-3" >
+  <div class = "" id = "paths">
+
+    <div class = "col-md-offset-1 col-md-5 path-content" >
       <%= form_tag( product_search_path, method: :get, class: "form-inline", role: "form"  ) do %>
         <div class = "form-group" id = "product-search">
-          <%= label_tag "Find products near you!" %>
+          <%= label_tag :find_local_food, "Find Local Food!", id: "find-food" %>
           <%= text_field_tag :product_search, "", class: "form-control", placeholder: "Eggs, Milk, etc." %>
         </div>
       <% end %>
     </div>
 
-    <div id = "sell" class = "col-md-offset-1 col-md-3">
-      <br />
-      <%= button_to "Sell", new_farmer_path, class: "btn btn-large btn-warning", method: :get %>
+    <div class = "col-md-1 path-content">
+      <%= label_tag :or, "or", id: "or" %>
+    </div>
+
+    <div class = " col-md-4 path-content">
+      <%= label_tag :sell_local_food, "Sell Local Food!", id: "find-food" %>
     </div>
 
   </div>
