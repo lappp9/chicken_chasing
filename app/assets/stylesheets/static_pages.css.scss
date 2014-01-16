@@ -87,3 +87,12 @@ html, body {
 .right-shadow {
   right: 0;
 }
+
+.clickable{
+  width: 50%;
+  z-index:5;
+  opacity:0;
+  position:absolute;
+  height:100%;
+  right:0;
+}

@@ -19,3 +19,7 @@ $(".right-shadow").hover(function(){
   $(".right-shadow").addClass("hidden");
 });
 
+
+$(".clickable").click(function(){
+  window.location.href = "/farmers/new";
+});
