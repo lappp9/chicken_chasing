@@ -1,5 +1,5 @@
 class FarmersController < ApplicationController
-  before_action :is_logged_in_farmer?, only: :show
+  #before_action :is_logged_in_farmer?, only: :show
 
   def new
     @farmer  = Farmer.new
@@ -24,7 +24,12 @@ class FarmersController < ApplicationController
   end
 
   def show 
-    @farmer = Farmer.find_by id: params[:id]
+    debugger
+    if signed_in? && current_user.farmer && (current_user.farmer == Farmer.find_by(id: params[:id]))
+      @farmer = Farmer.find_by(id: params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
