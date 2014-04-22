@@ -24,7 +24,6 @@ class FarmersController < ApplicationController
   end
 
   def show 
-    debugger
     if signed_in? && current_user.farmer && (current_user.farmer == Farmer.find_by(id: params[:id]))
       @farmer = Farmer.find_by(id: params[:id])
     else

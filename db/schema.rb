@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140110194456) do
+ActiveRecord::Schema.define(version: 20140404021955) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 20140110194456) do
     t.integer  "zip"
     t.integer  "user_id"
     t.integer  "farm_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts_have_products", force: true do |t|
+    t.integer  "cart_id"
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

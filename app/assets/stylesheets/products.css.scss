@@ -4,12 +4,13 @@
 
 .search-result.row {
   border: 1px solid black;
-  padding: 15px;
-  margin-top: 5px;
+  padding: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  margin-top:10px;
+  margin-top:20px;
+  background-color: #f0f0f0;
+  box-shadow: 6px 6px 5px #888888;
 }
 
 .product-link{
@@ -35,3 +36,6 @@
   padding-left: 15px;
 }
 
+#sorting-controls{
+  float:right;
+}

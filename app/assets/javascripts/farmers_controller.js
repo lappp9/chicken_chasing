@@ -26,7 +26,7 @@ function farmerSignupCtl($scope, $http, $location){
           submitData("farmer", response.id)
         }
         else{
-          window.location.href = "http://localhost:3000/farms/new";
+          window.location.href = "/farms/new";
         }
       }
       else{
