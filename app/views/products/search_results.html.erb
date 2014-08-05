@@ -11,7 +11,7 @@
       <div class = "col-md-8 product-details">
         <h3> <%= p.name %>        </h3>
         <p>  <%= p.description %> <p>
-        <%= link_to "Add to Cart", "#", class: "product-link" %>
+        <%= link_to "Add to Cart", "#", class: "product-link add-to-cart", "data-product-id" => p.id %>
         <%= link_to "View Product", product_path(p), class: "product-link" %>
         <%= link_to "View Farm", farm_path(p.farm), class: "product-link" %>
       </div>
@@ -23,3 +23,7 @@
 
   </div>
 <% end %>
+
+<div class = "col-md-8 col-md-offset-2">
+  <%= debug session[:cart_product_ids] %>
+</div>

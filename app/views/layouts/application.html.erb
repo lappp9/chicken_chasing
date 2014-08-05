@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ChickenChasing</title>
+    <title>Chicken Chasing</title>
     <%= render 'layouts/stylesheets' %>
+    <link rel="shortcut icon" type="image/png" href="assets/chickenLogo-fav.png"/>
   </head>
   <body ng-app>
     <%= render 'layouts/header' %>
@@ -18,6 +19,7 @@
 
     <div class = "col-md-8 col-md-offset-2">
       <%= debug(params) if Rails.env.development? and request.env['PATH_INFO'] != '/' %>
+
     </div>
     <%= javascript_include_tag :application %>
     

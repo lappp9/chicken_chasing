@@ -1,16 +1,29 @@
 <div id = "header">
   <span id = 'logo'>  <%= link_to logo, root_path %>  </span>
-  <span id = "title"><%= link_to 'ChickenChasing', root_path, class: 'menu title' %></span>
+  <span id = "title"><%= link_to 'Chicken Chasing', root_path, class: 'menu title' %></span>
 
   <span id = "middleMenu">
     <div class = "left">
       <div id = "messages">
-        <span class = 'glyphicon glyphicon-comment menu'><span class="badge cart-badge">3</span></span> |
+        <span class = 'glyphicon glyphicon-comment menu popover-dismiss' data-toggle="popover" data-placement="bottom" >
+          <span class="badge chat-badge">0</span>
+        </span> |
       </div>
 
     </div>
     <div id = "cart">
-      <span class = 'glyphicon glyphicon-shopping-cart menu'><span class="badge cart-badge">1</span></span>
+      <span class = 'glyphicon glyphicon-shopping-cart menu popover-dismiss' data-toggle="popover" data-placement="bottom" >
+        <span class="badge cart-badge "><%= session[:cart_product_ids].count if session[:cart_product_ids] %></span>        
+      </span>
+
+      <div class = "cart-content hidden">
+        <div>
+          <% @cart_products.each do |product| %>
+            <div class = "product-in-cart"> product </div>
+          <% end %>
+        </div>
+      </div>
+      
     </div>
   </span>
 
@@ -42,8 +55,9 @@
         <h4 class="modal-title" id="myModalLabel">Before you get started, would you like to sign up as a buyer or seller?</h4>
       </div>
       <div class="modal-body">
-        <%= link_to "Buyer", new_user_path, method: :get, class: "btn btn-lg btn-primary right" %>
-        <%= link_to "Seller", new_farmer_path, method: :get, class: "btn btn-lg btn-primary left" %>
+        <%= link_to "Buyer", new_user_path, method: :get, class: "btn btn-lg btn-primary left" %>
+        <%= link_to "Seller", new_farmer_path, method: :get, class: "btn btn-lg btn-primary right" %>
+
       </div>
       <br />
       <div class="modal-footer">

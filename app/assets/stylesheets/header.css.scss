@@ -42,11 +42,11 @@ $header-alignment: -20%;
     }
 
     .glyphicon.glyphicon-comment.menu {
-      margin-right: -5px;
+      margin-right: 8px;
     }
 
     .cart-badge{
-      margin-left:10px;
+      margin-left:-10px;
       margin-bottom:5px;
       position: relative;
       left: -13px;
@@ -58,6 +58,20 @@ $header-alignment: -20%;
       padding-bottom: 4px;
       border-radius:inherit;
     }  
+
+    .chat-badge{
+      margin-left:10px;
+      margin-bottom:5px;
+      position: relative;
+      left: -13px;
+      top: -15px;
+      background-color: #E64661;
+      padding-left: 3px;
+      padding-right: 3px;
+      padding-top: 1px;
+      padding-bottom: 4px;
+      border-radius:inherit;
+    } 
   }
 
 
@@ -75,4 +89,11 @@ $header-alignment: -20%;
   color: white;
   background-color:#002D40;
   border-color:#002D40;
+}
+
+.popover-content {
+  color: black;
+}
+
+.product-in-cart{
 }
