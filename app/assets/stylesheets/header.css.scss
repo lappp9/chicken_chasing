@@ -95,5 +95,31 @@ $header-alignment: -20%;
   color: black;
 }
 
-.product-in-cart{
+.cart-popover{
+  left:476px;
+  z-index: 10000;
+}
+
+.comment-popover{
+  left:420px;
+}
+
+.popover-content{
+  width: 276px;
+}
+
+.cart-btn{
+  width: 98%;
+  margin-top: 20px;
+}
+
+.product-in-cart-dropdown{
+  small{
+    color: darkGrey;
+  }
+  font-size: 16px;
+}
+
+.glyphicon-remove:hover{
+  color:red;
 }

@@ -10,7 +10,8 @@ ChickenChasing::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   post "/cart" => "cart#add"
-
+  get "/cart" => "cart#show"
+  delete "/cart/:product_id" => "cart#destroy"
   
 
   match '/product_search', to: 'products#search_results',     via: 'get'

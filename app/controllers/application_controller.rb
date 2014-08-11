@@ -11,6 +11,14 @@ class ApplicationController < ActionController::Base
 
   private
 	  def gather_cart_products
+      @cart_products = []
+      @product_hash = {}
+
 	  	@cart_products = session[:cart_product_ids].map { |id| @product = Product.find_by id: id } if session[:cart_product_ids]
-	  end
+
+      @cart_products.each do |cp|
+        @product_hash[cp] += 1 if @product_hash[cp]
+        @product_hash[cp] = 1 if !@product_hash[cp]
+      end
+    end
 end

@@ -1,12 +1,16 @@
 
 $(".glyphicon-comment").popover({
-	content: "comments"
+	content: "comments",
+	template: '<div class="popover comment-popover"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
+
 })
 
 $(".glyphicon-shopping-cart").popover({
 	html: true, 
 	content: -> 
 		$(".cart-content").html()
+	template: '<div class="popover cart-popover"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
+
 })
 
 $('.add-to-cart').click (e) ->

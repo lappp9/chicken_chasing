@@ -41,7 +41,7 @@ html, body {
 
 .banner-content{
   position:relative;
-  z-index:5;
+  z-index:1;
 }
 
 #paths{
@@ -90,10 +90,10 @@ html, body {
 
 .clickable{
   width: 50%;
-  z-index:5;
+  z-index:1;
   opacity:0;
   position:absolute;
-  height:100%;
+  height:90%;
   right:0;
   cursor:pointer;
 }
