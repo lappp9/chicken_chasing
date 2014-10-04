@@ -25,3 +25,4 @@
 # Ignore image files in the public directory
 public/system/farms
 public/system/users
+public/system/products
