@@ -1,7 +1,13 @@
 ChickenChasing::Application.routes.draw do
+  resources :payment_methods
+
   root 'static_pages#home'
 
   resources :users, :products, :farmers, :customers
+
+  resources :users do
+    resources :payment_methods
+  end
 
   resources :farms do
     resources :products
