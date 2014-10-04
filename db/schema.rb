@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404021955) do
+ActiveRecord::Schema.define(version: 20141004200409) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 20140404021955) do
     t.integer  "customer_id"
     t.datetime "date"
     t.decimal  "total"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payment_methods", force: true do |t|
+    t.integer  "user_id"
+    t.string   "nickname"
+    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

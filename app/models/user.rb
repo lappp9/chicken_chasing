@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :profile, polymorphic: true
   has_one :cart
+  has_many :payment_methods
 
   before_create :create_remember_token 
 
