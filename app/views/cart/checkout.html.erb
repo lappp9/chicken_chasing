@@ -1,0 +1,12 @@
+<h1>hello world</h1>
+<div class="container" ng-app='CheckOut'>
+  <div ng-controller='CheckoutCtrl'>
+    {{message}}
+    <div ng-repeat='product in products'>
+      <label>{{product.id}} </label>
+    </div>
+  </div>
+</div>
+
+
+<%= javascript_include_tag 'angular/checkout' %>
