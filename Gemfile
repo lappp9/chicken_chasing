@@ -13,6 +13,12 @@ gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
+# Use bower for front-end management
+gem 'bower-rails'
+
+# Use angular templates from route configs without worrying about hashed addresses in deploy.
+gem 'angular-rails-templates'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
