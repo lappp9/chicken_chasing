@@ -1,0 +1,9 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "angular": "1.2.25",
+    "angular-resource": "1.2.25",
+    "angular-route": "1.2.25",
+    "angular-cookies": "1.2.25"
+  }
+}
