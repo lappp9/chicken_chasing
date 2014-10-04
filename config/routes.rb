@@ -1,7 +1,13 @@
 ChickenChasing::Application.routes.draw do
+  resources :payment_methods
+
   root 'static_pages#home'
 
   resources :users, :products, :farmers, :customers
+
+  resources :users do
+    resources :payment_methods
+  end
 
   resources :farms do
     resources :products
@@ -13,9 +19,10 @@ ChickenChasing::Application.routes.draw do
   get '/checkout' => 'cart#checkout'
   post "/cart" => "cart#add"
   get "/cart" => "cart#show"
+  get "/cart_products" => "cart#index"
+
   delete "/cart/:product_id" => "cart#destroy"
   
-
   match '/product_search', to: 'products#search_results',     via: 'get'
 
   match '/signup_options', to: 'static_pages#signup_options', via: 'get'
