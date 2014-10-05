@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "200x200#", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
 
+  def farmer?
+    self.profile_type == 'Farmer' && self.profile_id.present?
+  end
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
