@@ -13,8 +13,8 @@ class FarmersController < ApplicationController
     if @farmer.save
       sign_in @farmer.user 
       flash[:success] = "Congratulations your farmer profile was created successfully!"
-
-      render new_farmer_farm_path(@farmer) 
+      session[:farmer_id] = @farmer.id
+      redirect_to new_farmer_farm_path(@farmer)
     else
       render 'new'
     end
