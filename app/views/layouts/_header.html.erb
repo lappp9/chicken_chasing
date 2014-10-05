@@ -19,6 +19,7 @@
       <div class = "cart-content hidden">
         <div class = "container-fluid">
 
+          <!--
           <% @product_hash.keys.each do |p| %>
             <div class = "product-in-cart row" data-product-id = "<%= p.id %>"> 
               <div class = "col-md-2 img-rounded"><%= image_tag p.image.url(:thumb), style: "width: 30px;" %></div>
@@ -31,7 +32,10 @@
             <hr data-product-id = "<%= p.id %>">
           <% end %>
 
+
+          -->
           <%= link_to "View Cart ( #{pluralize(@cart_products.count, 'item')} )", "/cart", class: "btn btn-primary cart-btn" %>
+          
         </div>
       </div>
 

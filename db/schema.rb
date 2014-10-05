@@ -74,6 +74,14 @@ ActiveRecord::Schema.define(version: 20141004215155) do
     t.datetime "updated_at"
   end
 
+  create_table "payment_methods", force: true do |t|
+    t.integer  "user_id"
+    t.string   "nickname"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.text     "description"
     t.string   "name"
