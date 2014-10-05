@@ -1,40 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class = "col-md-offset-2 col-md-8 row">
 
-<div class = "col-md-offset-2 col-md-8 row">
+      <%= form_tag( farm_products_path(), method: :get, class: "form-inline", role: "form"  ) do %>
+      <div class = "form-group col-md-3" id = "product-search">
+        <small><%= label_tag "Product" %></small>
+        <%= text_field_tag :product_search, "", class: "form-control", placeholder: "Eggs, Milk, etc." %>
+      </div>
+      <% end %>
 
-  <%= form_tag( farm_products_path(), method: :get, class: "form-inline", role: "form"  ) do %>
-    <div class = "form-group col-md-3" id = "product-search">
-      <small><%= label_tag "Product" %></small>
-      <%= text_field_tag :product_search, "", class: "form-control", placeholder: "Eggs, Milk, etc." %>
+      <div class = "form-group col-md-3" id = "sorting-controls">
+        <small><%= label_tag "Sort By" %></small>
+        <%= select_tag :sort_by, "<option>Price</option><option>Distance</option>".html_safe, class: "form-control" %>
+      </div>
+
+    </div>
+
+    <% @products.each do |p| %>
+    <div class = "col-md-offset-2 col-md-8 search-result row">
+      <div class = "row">
+
+        <div class = "col-md-2 product-picture">
+          <%= image_tag p.image.url(:thumb) %>
+        </div>
+
+        <div class = "col-md-8 product-details">
+          <h3> <%= p.name %>        </h3>
+          <p>  <%= p.description %> <p>
+            <%= link_to "Add to Cart", "#", class: "product-link" %>
+            <%= link_to "View Product", product_path(p), class: "product-link" %>
+            <%= link_to "View Farm", farm_path(p.farm), class: "product-link" %>
+            <% if signed_in? %>
+              <%= link_to("Delete", { url: farm_product_path(p.farm, p) }, method: :delete, data: { confirm: "Are you sure?" }, class: 'product-link') if current_user.farmer? %>
+            <% end %>
+          </div>
+
+          <div class = "col-md-2 farm-picture">
+            <%= image_tag p.farm.image.url(:thumb) %>
+          </div>
+        </div>
+
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <% if current_user.farmer? %>
+    <div class="row">
+      <div class='clear'></div>
+      <div class = "col-md-offset-1 col-md-8">
+      <%= link_to "Add Product", new_farm_product_path(current_user.profile.farm), class: 'btn btn-large btn-primary pull-right'%>
     </div>
   <% end %>
-
-  <div class = "form-group col-md-3" id = "sorting-controls">
-    <small><%= label_tag "Sort By" %></small>
-    <%= select_tag :sort_by, "<option>Price</option><option>Distance</option>".html_safe, class: "form-control" %>
   </div>
-
 </div>
-
-<% @products.each do |p| %>
-  <div class = "col-md-offset-2 col-md-8 search-result row">
-    <div class = "row">
-
-      <div class = "col-md-2 product-picture">
-        <%= image_tag p.image.url(:thumb) %>
-      </div>
-
-      <div class = "col-md-8 product-details">
-        <h3> <%= p.name %>        </h3>
-        <p>  <%= p.description %> <p>
-        <%= link_to "Add to Cart", "#", class: "product-link" %>
-        <%= link_to "View Product", product_path(p), class: "product-link" %>
-        <%= link_to "View Farm", farm_path(p.farm), class: "product-link" %>
-      </div>
-
-      <div class = "col-md-2 farm-picture">
-        <%= image_tag p.farm.image.url(:thumb) %>
-      </div>
-    </div>
-
-  </div>
-<% end %>
