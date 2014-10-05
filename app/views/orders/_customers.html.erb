@@ -1,20 +1,26 @@
-<h1>My Orders</h1>
-<table class='table table-striped'>
-  <% @orders.each do |order| %>
-  <tr>
-    <td>
-      <div>
-        <span class="span2">
-          <%= order_descriptors_for(order)%>
-        </span>
-        <span class="span2">
-          <%= "$#{order.total}" %>
-        </span>
-        <span class="span6 pull-right">
-          <%= link_to 'View Order', order %>
-        </span>
-      </div>
-    </td>
-  </tr>
-  <% end %>
-</table>
+<span class="col-md-8 col-md-offset-2">
+  <h1 class='dark-green'>My Orders</h1>
+  <table class='table table-striped dark-green'>
+    <tr>
+      <th>Items</th>
+      <th>Amount</th>
+      <th>View</th>
+    </tr>
+    <% @orders.each do |order| %>
+    <tr>
+      <td>
+        <div><%= order_descriptors_for(order)%></div>
+      </td>
+      <td>
+        <div><%= "$#{order.total}" %></div>
+      </td>
+      <td>
+        <div>
+          <%= link_to 'View Order', order %> |
+          <%= link_to 'Cancel', '#' %>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</span>
