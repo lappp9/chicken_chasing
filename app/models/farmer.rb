@@ -6,6 +6,10 @@ class Farmer < ActiveRecord::Base
 
   validates :favorite_quotes, presence: true
 
+  def farmer?
+    true
+  end
+  
   def farm_name
     self.farm.name
   end
