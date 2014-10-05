@@ -70,13 +70,13 @@
         <h4 class="modal-title" id="myModalLabel">Before you get started, would you like to sign up as a buyer or seller?</h4>
       </div>
       <div class="modal-body">
-        <%= link_to "Buyer", new_user_path, method: :get, class: "btn btn-lg btn-primary left" %>
-        <%= link_to "Seller", new_farmer_path, method: :get, class: "btn btn-lg btn-primary right" %>
+        <%= link_to "Buyer", new_user_path, method: :get, class: "btn btn-lg btn-primary left modalBtn" %>
+        <%= link_to "Seller", new_farmer_path, method: :get, class: "btn btn-lg btn-primary right modalBtn" %>
 
       </div>
       <br />
       <div class="modal-footer">
-        <%= link_to "Cancel", "data-dismiss" => "modal" %>
+        <%= link_to "Cancel", "#", :class => "cancel", "data-dismiss" => "modal" %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
