@@ -59,8 +59,8 @@ add_product_to_cart_popover = function(products) {
       console.log(data.image_url);
 
       cart_product = "<div class = 'product-in-cart row' data-product-id = '"+ data[i].id +"'>";
-        cart_product += '<div class = "col-md-2 img-rounded"><img style = "width: 30px;" src = "' + data[i].image_url + '"/></div>';
-        cart_product += "<div class = 'col-md-7 product-in-cart-dropdown'><a href='/products/" + data[i].id + "'>" + data[i].name + "</a><br> <small>Quantity: "+ data[i].quantity +"</small></div>";
+        cart_product += '<div class = "col-md-3 img-rounded"><img style = "width: 70px;" src = "' + data[i].image_url + '"/></div>';
+        cart_product += "<div class = 'col-md-6 product-in-cart-dropdown'><a href='/products/" + data[i].id + "'>" + data[i].name + "</a><br> <small>Quantity: "+ data[i].quantity +"</small></div>";
         cart_product += "<div class = 'col-md-2'>";
         cart_product += "<span class = 'glyphicon glyphicon-remove' data-product-id='"+data[i].id+"'> </span>";
         cart_product += "</div></div>";
