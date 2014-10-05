@@ -2,7 +2,7 @@
   <div class="row">
     <aside class="col-md-offset-2 col-md-8">
       <section>
-        <h1>
+        <h1 class='dark-green'>
           <%= image_tag @user.avatar.url(:thumb) %>
           <%= @user.name %>
         </h1>
@@ -12,8 +12,8 @@
   </div>
   <div class="row">
     <div class='col-md-offset-2 col-md-12'>
-      <%= link_to 'My Orders', orders_path, class: 'btn btn-primary btn-large'%>
-      <%= link_to 'My Payment Methods', payment_methods_path, class: 'btn btn-primary btn-large' %>
+      <%= link_to 'My Orders', orders_path, class: 'btn btn-checkout btn-large'%>
+      <%= link_to 'My Payment Methods', payment_methods_path, class: 'btn btn-checkout btn-large' %>
     </div>
 
   </div>
