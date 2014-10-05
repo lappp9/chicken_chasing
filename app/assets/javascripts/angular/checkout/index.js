@@ -34,16 +34,14 @@ app.controller('CheckoutCtrl', ['$scope', '$window', 'CartProduct', 'PaymentMeth
     updateCartTotal = function(){
       var total = 0;
       for (var i=0 ; i<$scope.products.length; i++){
-        total += $scope.products[i].price;
+        var product = $scope.products[i];
+        total += product.price * product.quantity;
       }
       $scope.cartTotal = total;
     };
 
     PaymentMethod.all().success(function(paymentMethods){
       $scope.paymentMethods = paymentMethods;
-      // if ($scope.paymentMethods.length > 0) {
-      //   $scope.paymentMethod = $scope.paymentMethods[0];
-      // }
     }).error(function(error){
       alert(error);
     });
