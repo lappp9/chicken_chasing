@@ -38,7 +38,11 @@ ChickenChasing::Application.routes.draw do
   match '/login',          to: 'sessions#new',                via: 'get'
   match '/logout',         to: 'sessions#destroy',            via: 'delete'
 
+  get '/contact', to: 'static_pages#contact', as: :contact
+
   match '/about',          to: 'static_pages#about',          via: 'get'
+  match '/privacy',        to: 'static_pages#privacy',        via: 'get'
+  match '/terms',          to: 'static_pages#terms',          via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

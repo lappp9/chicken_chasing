@@ -1,38 +1,43 @@
-<div id = "content">
+<%= stylesheet_link_tag "home" %>
 
-  <div class = "" id = "banner">
+<div id = "homePage" class = "container-fluid">
 
-    <div class = "transparency" >
-    </div>
+  <div class = "header"> 
+    <ul class = "menu col-md-offset-8  col-md-4">
+      <li><%= link_to "SIGN-UP", signup_path %></li>
+      <li><%= link_to "HOME", root_path %></li>
+      <li><%= link_to "ABOUT", about_path %></li>
+      <li><%= link_to "CONTACT", contact_path %></li>
+      <li><%= link_to "LOGIN", login_path %></li>
+    </ul>
+  </div>
 
-    <div class = "banner-content col-md-12" id = "home-tagline">
-        <h3 class = "col-md-offset-2">Welcome to Chicken Chasing! The best place to buy and sell locally.</h3>
-    </div>
+  <div class = "logo">
+    <%= image_tag "logo_2.png", width: "500px", class: "logo-image" %>
+  </div>
 
+  <div class = "searchBar">
+    <%= text_field_tag :product_search, "", class: "searchBarTextField", placeholder: "Looking for a product?" %>
   </div>
 
 
-  <div class = "" id = "paths">
 
-    <div class = "clickable"></div>
 
-    <div class = "col-md-offset-1 col-md-5 path-content" >
-      <%= form_tag( product_search_path, method: :get, class: "form-inline", role: "form"  ) do %>
-        <div class = "form-group" id = "product-search">
-          <%= label_tag :find_local_food, "Find Local Food!", id: "find-food" %>
-          <%= text_field_tag :product_search, "", class: "form-control", placeholder: "Eggs, Milk, etc." %>
-        </div>
-      <% end %>
+
+  <div id = "footer">
+
+    <div class = "footer-background">
+      <%= image_tag "hills.png", width: "100%", class: "footer-image" %>
     </div>
-
-    <div class = "col-md-1 path-content">
-      <%= label_tag :or, "or", id: "or" %>
+    <div class = "overlay">
+      <ul class = "menu col-md-offset-8 col-md-4">
+        <li>©2014</li>
+        <li>Chicken Chasing</li>
+        <li><%= link_to "Privacy", privacy_path %></li>
+        <li><%= link_to "Terms", terms_path %></li>
+      </ul>
     </div>
-
-    <div class = " col-md-4 path-content">
-      <%= label_tag :sell_local_food, "Sell Local Food!", id: "find-food" %>
-    </div>
-
   </div>
+
 
 </div>

@@ -1,3 +1,4 @@
+<% unless params[:action] == "home" %>
 <div id = "header">
   <span id = 'logo'>  <%= link_to logo, root_path %>  </span>
   <span id = "title"><%= link_to 'Chicken Chasing', root_path, class: 'menu title' %></span>
@@ -81,3 +82,5 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<% end %>
