@@ -54,6 +54,11 @@ app.controller('CheckoutCtrl', ['$scope', '$window', 'CartProduct', 'PaymentMeth
         alert('error');
       });
     };
+
+    $scope.totalFor = function(product){
+      return product.price * product.quantity;
+    };
+    
     getProducts();
 }]);
 

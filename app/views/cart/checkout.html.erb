@@ -1,20 +1,54 @@
-<div class="container" ng-app='CheckOut'>
-  <h1>Check Out</h1>
+<div class="clear"></div>
+<div class="container" ng-app='CheckOut' id="checkout">
   <div>
     <div ng-controller='CheckoutCtrl' class='row'>
-      <div ng-repeat='product in products'>
-        <img class='span2' ng-src='{{product.image_url}}'>
-        <label class='span4'>{{product.name}}</label>
-        <label class='span2'>Quantity: {{product.quantity}}</label>
-        <button class='btn btn-danger pull-right span2' ng-click='remove(product)'>Remove</button>
-      </div>
-      <h1>Choose a Payment Method</h1>
-      <select ng-model='paymentMethod' ng-options='pm.nickname for pm in paymentMethods'>
-      </select>
+      <span class="col-md-8">
+        <label class='review-items'>Review Items</label>
+        <table class='checkout-table'>
+          <tr>
+            <th>Items</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Item Total</th>
+            <th></th>
+          </tr>
+          <tr ng-repeat='product in products'>
+            <td><label>{{product.name}}</label></td>
+            <td><label>{{product.description}}</label></td>
+            <td><label>{{product.quantity}}</label></td>
+            <td><label>${{product.price}}</label></td>
+            <td><label>${{totalFor(product)}}</label></td>
+            <td ><labrl class='glyphicon glyphicon-trash' ng-click='remove(product)'></td>
+          </tr>
+        </table>
+      </span>
 
-      <h1>Cart Total</h1>
-      <pre>{{cartTotal | currency: USD }}</pre>
-      <button class="btn btn-success btn-large" ng-click='buy()'>Get yo Stuff!</button>
+      <span class="col-md-3">
+        <br/>
+        <table class='cart-total'>
+          <tr>
+            <td>Total</td>
+            <td>${{cartTotal}}</td>
+          </tr>
+        </table>
+
+
+        <br/>
+        <label class='review-items'>Choose a Payment Method</h1>
+
+        <br/>
+        <select class='styled-select payment' ng-model='paymentMethod' ng-options='pm.nickname for pm in paymentMethods'></select>
+
+        <br/>
+        <br/>
+        <button class="btn btn-checkout btn-large" ng-click='buy()'>Checkout</button>
+
+        <br/>
+
+      </span>
+
+
     </div>
   </div>
 </div>
