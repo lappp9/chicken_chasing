@@ -13,6 +13,35 @@
   box-shadow: 6px 6px 5px #888888;
 }
 
+#cart-add {
+  padding-left: 90px;
+  padding-top: 10px;
+}
+
+#description {
+  padding-left: 15px;
+}
+
+#product-checkout {
+  padding: 20px;
+}
+
+#product-image {
+  float: left;
+}
+
+#cart-controls {
+  float:right;
+}
+
+#sidebar {
+  float:left;
+}
+
+#shipping-methods {
+  clear: both;
+}
+
 .product-link{
   float:right;
   padding-right: 35px;
@@ -32,7 +61,6 @@
 }
 
 #product-info {
-  border-left: 1px solid black;
   padding-left: 15px;
 }
 
