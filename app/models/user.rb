@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   belongs_to :profile, polymorphic: true
   has_one :cart
   has_many :payment_methods
+  has_many :orders, foreign_key: :customer_id
 
   before_create :create_remember_token 
 
