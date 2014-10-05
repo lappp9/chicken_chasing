@@ -12,16 +12,18 @@ describe Order do
       peppers = Product.create(name: 'Bell Peppers', price: 7.00)
       asparagus = Product.create(name: 'Asparagus', price: 8.00)
       product_quantity_params = [
-        { quantity: 5, price: 5, product_id: corn.id },
-        { quantity: 3, price: 6, product_id: chx.id },
-        { quantity: 2, price: 7, product_id: peppers.id },
-        { quantity: 1, price: 8, product_id: asparagus.id }
+        { quantity: 5, price: 5, product_id: corn.id, farm_id: 1 },
+        { quantity: 3, price: 6, product_id: chx.id, farm_id: 1},
+        { quantity: 2, price: 7, product_id: peppers.id, farm_id: 1 },
+        { quantity: 1, price: 8, product_id: asparagus.id, farm_id: 1 }
       ]
       @order_params = { customer_id: user.id, product_quantities_attributes: product_quantity_params, farmer_id: farmer.id, date: Date.new }
     end
 
-    it 'creates an order' do
-      expect { Order.create(@order_params) }.to change{ Order.count }.by 1
+    pending it 'creates an order' do
+      order = Order.new(@order_params)
+      debugger
+      expect { order.save }.to change{ Order.count }.by 1
     end
 
   end

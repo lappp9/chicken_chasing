@@ -7,6 +7,6 @@ describe "StaticPages" do
   describe "the home page" do
     before { visit root_path }
 
-    it { should have_content 'Welcome to Chicken Chasing!' }
+    it { should have_selector '.logo-image' }
   end
 end
