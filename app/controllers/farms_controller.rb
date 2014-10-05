@@ -24,6 +24,7 @@ class FarmsController < ApplicationController
 
   def new 
     @farm = Farm.new
+debugger
     if !current_user.nil? && current_user.farmer.farm
       flash[:danger] = "Your farm has already been created."
       redirect_to farmer_path(current_user.farmer)

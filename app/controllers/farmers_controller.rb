@@ -3,23 +3,22 @@ class FarmersController < ApplicationController
 
   def new
     @farmer  = Farmer.new
-    @user    = User.new
+    @user    = @farmer.build_user
   end
 
   def create
-    @user = User.find_by(id: params[:user_id])
-    @farmer = Farmer.new(farmer_params)
-    @farmer.user = @user
 
-    if @farmer.save && @user
+    @farmer = Farmer.new(farmer_params)
+
+    if @farmer.save
       sign_in @farmer.user 
       flash[:success] = "Congratulations your farmer profile was created successfully!"
       session[:farmer_id] = @farmer.id
-      render json: @farmer 
-    elsif @farmer.save
-      render json: { error: "No user id present" }
+      debugger
+
+      render new_farm_path
     else
-      render json: @farmer.errors
+      render 'new'
     end
   end
 
@@ -45,6 +44,6 @@ class FarmersController < ApplicationController
     end
 
     def farmer_params
-      params.require(:farmer).permit(:favorite_quotes, :role_models, :personal_philosophy)
+      params.require(:farmer).permit!
     end
 end
