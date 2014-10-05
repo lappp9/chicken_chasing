@@ -1,19 +1,21 @@
-<div class="row">
-  <aside class="col-md-offset-2 col-md-8">
-    <section>
-      <h1>
-        <%= image_tag @user.avatar.url(:thumb) %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+<div class = "profile">
+  <div class="row">
+    <aside class="col-md-offset-2 col-md-8">
+      <section>
+        <h1>
+          <%= image_tag @user.avatar.url(:thumb) %>
+          <%= @user.name %>
+        </h1>
+      </section>
+    </aside>
 
-</div>
-<div class="row">
-  <div class='col-md-offset-2 col-md-12'>
-    <%= link_to 'My Orders', orders_path, class: 'btn btn-primary btn-large'%>
-    <%= link_to 'My Payment Methods', payment_methods_path, class: 'btn btn-primary btn-large' %>
+  </div>
+  <div class="row">
+    <div class='col-md-offset-2 col-md-12'>
+      <%= link_to 'My Orders', orders_path, class: 'btn btn-primary btn-large'%>
+      <%= link_to 'My Payment Methods', payment_methods_path, class: 'btn btn-primary btn-large' %>
+    </div>
+
   </div>
 </div>
-
 
