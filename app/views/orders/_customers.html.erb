@@ -1,0 +1,20 @@
+<h1>My Orders</h1>
+<table class='table table-striped'>
+  <% @orders.each do |order| %>
+  <tr>
+    <td>
+      <div>
+        <span class="span2">
+          <%= order_descriptors_for(order)%>
+        </span>
+        <span class="span2">
+          <%= "$#{order.total}" %>
+        </span>
+        <span class="span6 pull-right">
+          <%= link_to 'View Order', order %>
+        </span>
+      </div>
+    </td>
+  </tr>
+  <% end %>
+</table>

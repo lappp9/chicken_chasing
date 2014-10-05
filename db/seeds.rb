@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+OrderStatus.create(status: 'PROCESSING') unless OrderStatus.exists?(status: 'PROCESSING')
+OrderStatus.create(status: 'COMPLETED') unless OrderStatus.exists?(status: 'COMPLETED')
+

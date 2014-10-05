@@ -14,7 +14,7 @@
         <dt><strong>Favorite Quotes:</strong> <%= @farmer.favorite_quotes %></dt>
         <dt><strong>Role Models:</strong> <%= @farmer.role_models %></dt>
         <dt><strong>Farm:</strong> <%= link_to @farmer.farm_name, @farmer.farm %></dt>
-        <dt><strong> <%= link_to "View Open Orders", "#" %></strong></dt>
+        <dt><strong> <%= link_to "View Open Orders", farmer_orders_path(@farmer) %></strong></dt>
         <dt><strong> <%= link_to "Add a product", new_product_path %></strong></dt>
       </dl>
     </div>

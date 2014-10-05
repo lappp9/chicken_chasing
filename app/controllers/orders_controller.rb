@@ -8,8 +8,11 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     if @order.save
       params[:products].each do |product|
-        product_quantity = @order.product_quantities.build(product_id: product[:id], price: product[:price], quantity: product[:quantity])
-        if product_quantity.invalid?
+        p = Product.find(product[:id])
+        product_quantity = @order.product_quantities.build(product_id: product[:id], price: product[:price], quantity: product[:quantity], farm_id: p.farm_id, order_status: OrderStatus.processing_status)
+        if product_quantity.save
+          # AWESOME!
+        else
           @order.errors << 'error with product quantity'
         end
         if @order.errors.any?
@@ -29,7 +32,11 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_user.orders
+    if current_user.profile_type == 'Farmer'
+      @product_quantities =  ProductQuantity.where(farm_id: current_user.profile.farm.id)
+    else
+      @orders = current_user.orders
+    end
   end
 
 private

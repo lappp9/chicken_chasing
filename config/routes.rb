@@ -20,6 +20,10 @@ ChickenChasing::Application.routes.draw do
     resources :products
   end
 
+  resources :farmers do
+    resources :orders
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
 
 
