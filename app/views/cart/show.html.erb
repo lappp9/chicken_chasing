@@ -1,5 +1,6 @@
 
 <div class = "container-fluid">
+	<%= render 'checkout_buttons' %>
 	<% @product_hash.keys.each do |p| %>
 		<div class = "col-md-offset-2 col-md-8 search-result row">
 			<div class = "row">
@@ -10,6 +11,8 @@
 
 				<div class = "col-md-8 product-details">
 					<h3> <%= p.name %> (<%= @product_hash[p] %>) </h3>
+        <h5> $ <%= p.price %> </h5>
+          
 					<p>  <%= p.description %> <p>
 						<%= link_to "View Product", product_path(p), class: "product-link" %>
 						<%= link_to "View Farm", farm_path(p.farm), class: "product-link" %>
@@ -19,8 +22,15 @@
 						<%= image_tag p.farm.image.url(:thumb) %>
 					</div>
 				</div>
+
 			</div>
+
 		</div>
 	<% end %>
 
+	<div class = "col-md-offset-2 col-md-8 search-result row">
+			<label>Cart Total</label>
+			<label><%= cart_total_for(@product_hash) %></label>
+	</div>
+	<%= render 'checkout_buttons' %>
 </div>

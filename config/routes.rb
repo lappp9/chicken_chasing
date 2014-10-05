@@ -9,12 +9,17 @@ ChickenChasing::Application.routes.draw do
     resources :payment_methods
   end
 
+  resources :payment_methods
+  resources :orders
+  
   resources :farms do
     resources :products
   end
 
   resources :sessions, only: [:new, :create, :destroy]
 
+
+  get '/checkout' => 'cart#checkout'
   post "/cart" => "cart#add"
   get "/cart" => "cart#show"
   get "/cart_products" => "cart#index"

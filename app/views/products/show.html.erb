@@ -20,7 +20,7 @@
         <strong>Rating:</strong> <%= @product.rating %>
       </dt>
       <dt>
-        <strong>Price:</strong> $<%= @product.price %>
+      <strong>Price:</strong> $<div class = "product-price"><%= @product.price %></div>
       </dt>
     </dl>
 
@@ -44,13 +44,21 @@
 <div id = "cart-controls" class = "col-md-3">
   <div id="product-checkout">
     <dt>
-      <strong>Quantity:</strong> <%= @product.quantity %> <!-- Add Quantity Migration-->
+      <div class = "col-md-5"><strong>Quantity: </strong></div>
+      <div class = "col-md-7"><%= text_field_tag :quantity, "", type: :number %></div>
     </dt>
+    <br />
+    <br />
+
     <dt>
-      <strong>Total Price:</strong> <!-- Quantity * Price -->
+      <div class = "col-md-5"><strong>Total:</strong></div>
+      <div class = "col-md-7">$ <span class = "total-price">0.00</span></div>
     </dt>
+    <br />
+    <br />
+
     <dt>
-      <span class = 'glyphicon glyphicon-shopping-cart menu popover-dismiss' id="cart-add"><strong>Add</strong></span>
+    <div class = "btn btn-primary col-md-12 btn add-to-cart-from-listing" data-product-id = '<%= @product.id %>'>Add to Cart</div>
     </dt>
   </div>
 </div>
