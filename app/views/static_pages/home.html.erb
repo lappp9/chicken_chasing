@@ -4,7 +4,9 @@
 
   <div class = "header"> 
     <ul class = "menu col-md-offset-8  col-md-4">
-      <li><%= link_to "SIGN-UP", "#", "data-target" => "#myModal", "data-toggle" => "modal"  %></li>
+      <% unless signed_in? %>
+        <li><%= link_to "SIGN-UP", "#", "data-target" => "#myModal", "data-toggle" => "modal"  %></li>
+      <% end %>
       <li><%= link_to "HOME", root_path %></li>
       <li><%= link_to "ABOUT", about_path %></li>
       <li><%= link_to "CONTACT", contact_path %></li>
