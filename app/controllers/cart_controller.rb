@@ -4,7 +4,10 @@ class CartController < ApplicationController
 
 	def add
 		session[:cart_product_ids] ||= []
-		session[:cart_product_ids] << params[:product_id]
+
+    params[:quantity].to_i.times do
+      session[:cart_product_ids] << params[:product_id]
+    end
 
 		cart_products
 		render json: @products, status: :ok
