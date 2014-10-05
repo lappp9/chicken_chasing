@@ -1,0 +1,29 @@
+<h1>Orders</h1>
+<table class='table table-striped'>
+  <% @product_quantities.each do |pq| %>
+  <tr>
+    <td>
+      <div>
+        <span class="span2">
+          <b>Customer</b> <%= pq.customer.name %>
+        </span>
+        <span class="span2">
+          <b>Product:</b> <%= pq.product.name %>
+        </span>
+        <span class="span2">
+          <b>Quantity:</b> <%= pq.quantity %>
+        </span>
+        <span class="span2">
+          <b>Status</b> <%= pq.order_status.status %>
+          <%= link_to 'Mark as Complete', '#' %>
+        </span>
+        <span class="span2">
+          <b>Total Sale: </b><%= "$#{pq.total_sale}" %>
+        <span class="span6 pull-right">
+          <%= link_to 'View Order', pq.order %>
+        </span>
+      </div>
+    </td>
+  </tr>
+  <% end %>
+</table>
