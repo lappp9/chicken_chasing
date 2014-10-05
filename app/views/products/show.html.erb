@@ -8,18 +8,58 @@
 <div id = "" class = "col-md-6" >
   <div id = "product-info">
     <dl>
-      <h3><dt><strong>Product Name:</strong> <%= @product.name %></dt></h3>
-      <dt><strong>Sold By:</strong> <%= @product.farmer.user.name %></dt>
-      <dt><strong>Rating:</strong> <%= @product.rating %></dt>
-      <dt><strong>Price:</strong> $<%= @product.price %> </dt>
+      <h3>
+        <dt>
+          <strong>Product Name:</strong> <%= @product.name %>
+        </dt>
+      </h3>
+      <dt>
+        <strong>Sold By:</strong> <%= @product.farmer.user.name %>
+      </dt>
+      <dt>
+        <strong>Rating:</strong> <%= @product.rating %>
+      </dt>
+      <dt>
+      <strong>Price:</strong> $<div class = "product-price"><%= @product.price %></div>
+      </dt>
     </dl>
 
     <div id = "product-description">
-      <p>Description: <%= @product.description %> </p>
+      <p><strong>Description:</strong></p>
+      <div id = "description-border">
+        <p id= "description"> <%= @product.description %> </p>
+      </div>
+    </div>
+
+    <div id= "shipping-methods">
+      <p><strong>Shipping Methods:</strong></p>
+    </div>
+
+    <div id= "other-products">
+      <p><strong>Other Products by:</strong> <%= @product.farmer.user.name %> </p>
     </div>
   </div>
 </div>
 
 <div id = "cart-controls" class = "col-md-3">
-  This is where the add to cart stuff goes!
+  <div id="product-checkout">
+    <dt>
+      <div class = "col-md-5"><strong>Quantity: </strong></div>
+      <div class = "col-md-7"><%= text_field_tag :quantity, "", type: :number %></div>
+    </dt>
+    <br />
+    <br />
+
+    <dt>
+      <div class = "col-md-5"><strong>Total:</strong></div>
+      <div class = "col-md-7">$ <span class = "total-price">0.00</span></div>
+    </dt>
+    <br />
+    <br />
+
+    <dt>
+    <div class = "btn btn-primary col-md-12 btn add-to-cart-from-listing" data-product-id = '<%= @product.id %>'>Add to Cart</div>
+    </dt>
+  </div>
 </div>
+
