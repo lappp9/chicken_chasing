@@ -1,12 +1,21 @@
-<h1>hello world</h1>
 <div class="container" ng-app='CheckOut'>
-  <div ng-controller='CheckoutCtrl'>
-    {{message}}
-    <div ng-repeat='product in products'>
-      <label>{{product.id}} </label>
+  <h1>Check Out</h1>
+  <div>
+    <div ng-controller='CheckoutCtrl' class='row'>
+      <div ng-repeat='product in products'>
+        <img class='span2' ng-src='{{product.image_url}}'>
+        <label class='span4'>{{product.name}}</label>
+        <label class='span2'>Quantity: {{product.quantity}}</label>
+        <button class='btn btn-danger pull-right span2' ng-click='remove(product)'>Remove</button>
+      </div>
+      <h1>Choose a Payment Method</h1>
+      <select ng-model='paymentMethod' ng-options='pm.nickname for pm in paymentMethods'>
+      </select>
+
+      <h1>Cart Total</h1>
+      <pre>{{cartTotal | currency: USD }}</pre>
+      <button class="btn btn-success btn-large" ng-click='buy()'>Get yo Stuff!</button>
     </div>
   </div>
 </div>
-
-
 <%= javascript_include_tag 'angular/checkout' %>

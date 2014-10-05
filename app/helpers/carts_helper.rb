@@ -1,11 +1,11 @@
 module CartsHelper 
 
-  def cart_total_for(products)
+  def cart_total_for(product_hash)
     total = 0
-    debugger
-    products.each do |product|
-      total += product.price
+    product_hash.keys.each do |p|
+      total += p.price
     end
+    total
   end
 
 end
