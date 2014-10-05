@@ -41,16 +41,18 @@
     <%= f.label "What's your favorite quote?" %>
     <%= f.text_field :favorite_quotes, class: "form-control"  %>
 
-    <%= f.label "Who are some of your role models?" %>
-    <%= f.text_field :role_models, class: "form-control" %>
-
-    <%= f.label "What's your personal philosophy?" %>
-    <%= f.text_field :personal_philosophy, class: "form-control"  %>
+    <%= f.fields_for :user do |ff| %>
+      <%= ff.label :avatar, "Upload your profile picture!" %>
+      <%= ff.file_field :avatar, class: "form-control" %>
+    <% end %>
     <br />
     <br />
     <%= f.submit "Now let's move on to setting up the products you'll sell!", class: "btn-warning btn btn-lg right" %>
   <% end %>
-
+    <br />
+    <br />
+    <br />
+    <br />
      <br />
 </div>
 

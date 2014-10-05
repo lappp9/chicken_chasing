@@ -2,11 +2,11 @@ $header-alignment: -20%;
 
 #header
 {
-  background-color: #2C594F;
+  background-color: #EDF7F3;
   min-height: 75px;
   max-height: 500px;
   width: 100%;
-  color: white;
+  color: #666;
   font-family: 'Architects Daughter', serif;
   font-size:20px;
 
@@ -24,8 +24,11 @@ $header-alignment: -20%;
   }
   #logo
   {
-    padding-left: 85px;
+    padding-left: 200px;
     width:20px;
+  }
+  #logo a:hover{
+    background-color: #EDF7F3 !important;
   }
   #middleMenu
   {
@@ -33,7 +36,7 @@ $header-alignment: -20%;
     vertical-align: middle;
     display: inline-block;
     vertical-align: $header-alignment;
-    padding-left: 150px;
+    padding-left: 190px;
     font-size: 20 !important;
 
     .glyphicon.glyphicon-shopping-cart.menu {
@@ -51,7 +54,7 @@ $header-alignment: -20%;
       position: relative;
       left: -13px;
       top: -15px;
-      background-color: #E64661;
+      background-color: #E84866;
       padding-left: 3px;
       padding-right: 3px;
       padding-top: 1px;
@@ -65,7 +68,7 @@ $header-alignment: -20%;
       position: relative;
       left: -13px;
       top: -15px;
-      background-color: #E64661;
+      background-color: #E84866;
       padding-left: 3px;
       padding-right: 3px;
       padding-top: 1px;
@@ -79,7 +82,7 @@ $header-alignment: -20%;
   {
     float: right;   
     padding-top: 15px;
-    padding-right: 103px;
+    padding-right: 220px;
     font-size: 15px;
   }
 
@@ -122,4 +125,10 @@ $header-alignment: -20%;
 
 .glyphicon-remove:hover{
   color:red;
+}
+a.title{
+  color: #666 !important;
+}
+.menu{
+  color: #666 !important;
 }

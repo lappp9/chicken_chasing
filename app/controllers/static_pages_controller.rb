@@ -18,4 +18,7 @@ class StaticPagesController < ApplicationController
   def premium
   end
 
+  def contact
+  end
+
 end

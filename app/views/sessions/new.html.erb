@@ -3,20 +3,20 @@
 
   <%= form_for :session, url: sessions_path do |f| %>
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "form-control" %>
 
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "form-control" %>
 
     <br />
     <br />
-    <%= f.submit "Login", class: "btn btn-small btn-primary" %>
+    <%= f.submit "Login", class: "btn btn-lg btn-primary" %>
 
   <% end %>
 
   <p>
-  <div class = "left" >Haven't signed up yet? <%= link_to "Sign up!", signup_path %></div>
-  <div class = "right" >Forgot your password? <%= link_to "Reset it here!", '#' %></div>
+  <div class = "left" >Haven't signed up yet? <%= link_to "Sign up!", signup_path, class: "body-link" %></div>
+  <div class = "right" >Forgot your password? <%= link_to "Reset it here!", '#', class: "body-link" %></div>
   </p>
 
 </div>
