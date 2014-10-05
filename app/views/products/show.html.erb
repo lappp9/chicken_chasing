@@ -44,13 +44,21 @@
 <div id = "cart-controls" class = "col-md-3">
   <div id="product-checkout">
     <dt>
-      <strong>Quantity:</strong> <%= @product.quantity %> <!-- Add Quantity Migration-->
+      <div class = "col-md-5"><strong>Quantity: </strong></div>
+      <div class = "col-md-7"><%= text_field_tag :quantity, "", type: :number %></div>
     </dt>
+    <br />
+    <br />
+
     <dt>
-      <strong>Total Price:</strong> <!-- Quantity * Price -->
+      <div class = "col-md-5"><strong>Total:</strong></div>
+      <div class = "col-md-7 total-price">$ 0.00</div>
     </dt>
+    <br />
+    <br />
+
     <dt>
-      <span class = 'glyphicon glyphicon-shopping-cart menu popover-dismiss' id="cart-add"><strong>Add</strong></span>
+      <div class = "btn btn-primary col-md-12 btn">Add to Cart</div>
     </dt>
   </div>
 </div>
