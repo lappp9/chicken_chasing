@@ -18,6 +18,10 @@ a:hover{
   background-color: inherited !important;
 }
 
+.cart-page{
+  min-height: 400px;
+}
+
 body 
 {
   margin: 0;
@@ -123,4 +127,8 @@ a.cart-btn{
 
 .farmer-submit{
   color: white !important;
+}
+
+.login-page{
+  min-height: 410px !important;
 }

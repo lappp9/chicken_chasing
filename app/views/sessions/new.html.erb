@@ -1,4 +1,4 @@
-<div class = "col-md-8 col-md-offset-2">
+<div class = "col-md-8 col-md-offset-2 login-page">
   <h2> Login! </h2>
 
   <%= form_for :session, url: sessions_path do |f| %>
@@ -15,8 +15,8 @@
   <% end %>
 
   <p>
-  <div class = "left" >Haven't signed up yet? <%= link_to "Sign up!", signup_path, class: "body-link" %></div>
-  <div class = "right" >Forgot your password? <%= link_to "Reset it here!", '#', class: "body-link" %></div>
+    <div class = "left" >Haven't signed up yet? <%= link_to "Sign up!", signup_path, class: "body-link" %></div>
+    <div class = "right" >Forgot your password? <%= link_to "Reset it here!", '#', class: "body-link" %></div>
   </p>
 
 </div>
