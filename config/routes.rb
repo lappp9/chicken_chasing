@@ -10,7 +10,8 @@ ChickenChasing::Application.routes.draw do
   end
 
   resources :payment_methods
-
+  resources :orders
+  
   resources :farms do
     resources :products
   end

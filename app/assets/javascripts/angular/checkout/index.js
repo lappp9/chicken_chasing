@@ -10,8 +10,8 @@ app.config(['$httpProvider', function($httpProvider){
 }]);
 
 
-app.controller('CheckoutCtrl', ['$scope', 'CartProduct', 'PaymentMethod',
-  function($scope, CartProduct, PaymentMethod){
+app.controller('CheckoutCtrl', ['$scope', '$window', 'CartProduct', 'PaymentMethod',
+  function($scope, $window, CartProduct, PaymentMethod){
     $scope.cartTotal = 0;
 
     $scope.remove = function(product){
@@ -51,7 +51,7 @@ app.controller('CheckoutCtrl', ['$scope', 'CartProduct', 'PaymentMethod',
     $scope.buy = function(){
       var order = { payment_method_id: $scope.payment_method_id, products: $scope.products };
       CartProduct.buy(order).success(function(success){
-        $location.url('orders');
+        $window.location.href="/orders";
       }).error(function(error){
         alert('error');
       });

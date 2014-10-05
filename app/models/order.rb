@@ -7,8 +7,7 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :product_quantities
 
   validates_presence_of :customer
-  validates_presence_of :farmer
-  validates_presence_of :product_quantities
+  # validates_presence_of :product_quantities
 
   def total
     total = 0
