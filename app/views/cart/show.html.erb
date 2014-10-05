@@ -1,36 +1,40 @@
-
-<div class = "container-fluid ">
-	<%= render 'checkout_buttons' %>
-	<% @product_hash.keys.each do |p| %>
-		<div class = "col-md-offset-2 col-md-8 search-result row">
-			<div class = "row">
-
-				<div class = "col-md-2 product-picture">
-					<%= image_tag p.image.url(:thumb) %>
-				</div>
-
-				<div class = "col-md-8 product-details">
-					<h3> <%= p.name %> (<%= @product_hash[p] %>) </h3>
-        <h5> $ <%= p.price %> </h5>
-          
-					<p>  <%= p.description %> <p>
-						<%= link_to "View Product", product_path(p), class: "product-link" %>
-						<%= link_to "View Farm", farm_path(p.farm), class: "product-link" %>
-					</div>
-
-					<div class = "col-md-2 farm-picture">
-						<%= image_tag p.farm.image.url(:thumb) %>
-					</div>
-				</div>
-
-			</div>
-
+<div class="container">
+	<div class='row'>
+		<span class='col-md-8 col-md-offset-2'>
+			<h1 class='dark-green'>Your Cart</h1>
+			<table class="product-table">
+				<tr>
+					<th>Item</th>
+					<th>Product</th>
+					<th>Description</th>
+					<th>Quantity</th>
+					<th>Price</th>
+				</tr>
+				<% @product_hash.keys.each do |p| %>
+					<tr>
+						<td style='width: 60px;'><%= image_tag p.image.url(:thumb) %></td>
+						<td><label><%= p.name %></label></td>
+						<td><label class="quantity"><%= p.quantity %></label></td>	
+						<td><label><%= p.description %></label></td>
+						<td><label>$<%= p.price %></label></td>
+					</tr>
+				<% end %>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><label>Total</label></td>
+					<td><label><%= cart_total_for @product_hash %></label></td>
+				</tr>
+			</table>
+		<div class="row">
+			<div class="clear"></div>
+			<%= link_to 'Update and Check Out', checkout_path, class: 'btn btn-checkout btn-large pull-right' %>
 		</div>
-	<% end %>
-
-	<div class = "col-md-offset-2 col-md-8 search-result row">
-			<label>Cart Total</label>
-			<label><%= cart_total_for(@product_hash) %></label>
+		</span>
 	</div>
-	<%= render 'checkout_buttons' %>
+	</div>
+	<div class="clear"></div>
+
 </div>
+

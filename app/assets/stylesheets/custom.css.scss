@@ -22,6 +22,9 @@ a:hover{
   background-color: inherited !important;
 }
 
+.dark-green {
+  color: $dark-green;
+}
 .cart-page{
   min-height: 400px;
 }
@@ -215,4 +218,30 @@ a.cart-btn{
   color: $light-green;
   background-color: $dark-green;
   text-transform: uppercase;
+}
+
+/* Circle */
+.circular {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+}
+
+/* Product */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: $dark-green;
+}
+
+.product-table th {
+  border-bottom: 3px solid $dark-green;
+  height: 20px;
+  text-transform: uppercase;
+}
+
+.product-table td { 
+  height: 40px;
 }
