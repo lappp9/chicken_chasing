@@ -7,12 +7,13 @@ class CartController < ApplicationController
 		session[:cart_product_ids] << params[:product_id]
 
 		cart_products
-		#render json: { cart_product_ids: session[:cart_product_ids] }
 		render json: @products, status: :ok
 	end
 
 	def checkout
-
+    unless current_user 
+      redirect_to login_path
+    end
 	end
 
 	def show

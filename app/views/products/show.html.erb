@@ -20,7 +20,7 @@
         <strong>Rating:</strong> <%= @product.rating %>
       </dt>
       <dt>
-        <strong>Price:</strong> $<%= @product.price %>
+      <strong>Price:</strong> $<div class = "product-price"><%= @product.price %></div>
       </dt>
     </dl>
 
@@ -52,13 +52,13 @@
 
     <dt>
       <div class = "col-md-5"><strong>Total:</strong></div>
-      <div class = "col-md-7 total-price">$ 0.00</div>
+      <div class = "col-md-7">$ <span class = "total-price">0.00</span></div>
     </dt>
     <br />
     <br />
 
     <dt>
-      <div class = "btn btn-primary col-md-12 btn">Add to Cart</div>
+    <div class = "btn btn-primary col-md-12 btn add-to-cart-from-listing" data-product-id = '<%= @product.id %>'>Add to Cart</div>
     </dt>
   </div>
 </div>

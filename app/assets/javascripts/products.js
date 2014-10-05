@@ -111,3 +111,25 @@ $('#quantity').keypress(function(e) {
     
 });
 
+$("#quantity").change(function(){
+  var price = parseFloat($(".product-price").html() * $(this).val());
+
+  $(".total-price").html($(".product-price").html() * $(this).val() );
+});
+
+$(".add-to-cart-from-listing").click(function(e){
+  e.preventDefault();
+
+  var i = 0;
+  var quantity = $("#quantity").val();
+
+
+  for( i = 0; i < quantity; i++){
+    $(".cart-badge").hide();
+    increase_cart_total();
+    add_product_id_to_cart($(this).attr("data-product-id"));
+  }
+
+});
+
+
