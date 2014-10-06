@@ -14,8 +14,8 @@
 					<tr>
 						<td style='width: 60px;'><%= image_tag p.image.url(:thumb) %></td>
 						<td><label><%= p.name %></label></td>
-						<td><label class="quantity"><%= p.quantity %></label></td>	
 						<td><label><%= p.description %></label></td>
+						<td><label class="quantity"><%= @product_hash[p] %></label></td>	
 						<td><label>$<%= p.price %></label></td>
 					</tr>
 				<% end %>
