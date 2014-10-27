@@ -1,8 +1,11 @@
 ChickenChasing::Application.routes.draw do
   resources :payment_methods
 
-  root 'static_pages#home'
+  #root 'static_pages#home'
+  root 'static_pages#landing'
 
+  get 'home' => 'static_pages#home'
+  post 'email_list' => 'static_pages#email_list'
   resources :users, :products, :farmers, :customers
 
   resources :users do
@@ -11,6 +14,7 @@ ChickenChasing::Application.routes.draw do
 
   resources :farmers do
     resources :farms
+    resources :orders
   end
 
   resources :payment_methods
@@ -20,12 +24,7 @@ ChickenChasing::Application.routes.draw do
     resources :products
   end
 
-  resources :farmers do
-    resources :orders
-  end
-
   resources :sessions, only: [:new, :create, :destroy]
-
 
   get '/checkout' => 'cart#checkout'
   post "/cart" => "cart#add"
