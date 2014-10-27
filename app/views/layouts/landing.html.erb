@@ -3,11 +3,12 @@
   <head>
     <title>Chicken Chasing</title>
     <link rel="shortcut icon" type="image/png" href="assets/chickenLogo-fav.png"/>
+    <%= stylesheet_link_tag :landing %>
   </head>
   <body>
     <%= yield %>
 
-    <%= javascript_include_tag :application %>
+    <%= javascript_include_tag :landing %>
   </body>
 </html>
 

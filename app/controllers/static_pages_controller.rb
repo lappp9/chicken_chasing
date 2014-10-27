@@ -22,8 +22,8 @@ class StaticPagesController < ApplicationController
   end
   
   def landing
-    render layout: false 
-    #render layout: 'landing' 
+    #render layout: false 
+    render layout: 'landing' 
   end
 
   def email_list
