@@ -1,8 +1,8 @@
 ChickenChasing::Application.routes.draw do
   resources :payment_methods
 
-  #root 'static_pages#home'
-  root 'static_pages#landing'
+  root 'static_pages#home'
+  #root 'static_pages#landing'
 
   get 'home' => 'static_pages#home'
   post 'email_list' => 'static_pages#email_list'
